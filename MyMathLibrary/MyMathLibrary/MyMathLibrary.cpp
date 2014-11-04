@@ -10,7 +10,7 @@ namespace MyMathLibrary
 	//All functions for 2D & 3D Dimensional Vectors
 	//Function for Dot Product
 		//a_Ax & a_Ay = point 1 {x, y} || a_Bx & a_By = point 2 {x, y}
-	float MyMathLibrary::DotProduct(float a_Ax, float a_Ay, float a_Bx, float a_By)
+	float MyMathFunctions::DotProduct(float a_Ax, float a_Ay, float a_Bx, float a_By)
 	{
 		float result = 0;
 		result += ((a_Ax*a_Bx) + (a_Ay*a_By));
@@ -28,10 +28,26 @@ namespace MyMathLibrary
 		}
 	}
 	//Function for Normalization
+	float MyMathFunctions::NomralizeVector(string a_returnType, float a_x, float a_y, float a_length)
+	{
+		float resultX = 0;
+		float resultY = 0;
 
+		if (a_returnType == "x" || a_returnType == "X")
+		{
+			resultX += (a_x/a_length);
+			return resultX;
+		}
+
+		else if (a_returnType == "y" || a_returnType == "Y")
+		{
+			resultY += (a_y/a_length);
+			return resultY;
+		}
+	}
 	//Function for Cross Product
 		//a_Ax, a_Ay & a_Az = point 1 {x, y, z} || a_Bx, a_By, a_Bz = point 2 {x, y, z}
-	float MyMathLibrary::CrossProduct(string a_returnType,float a_Ax, float a_Ay, float a_Az, float a_Bx, float a_By, float a_Bz)
+	float MyMathFunctions::CrossProduct(string a_returnType, float a_Ax, float a_Ay, float a_Az, float a_Bx, float a_By, float a_Bz)
 	{
 		float resultX = 0;
 		float resultY = 0;
@@ -65,7 +81,7 @@ namespace MyMathLibrary
 		
 	}
 	//Function for Magnitude
-	float MyMathLibrary::Magnitude(float a_A, float a_B)
+	float MyMathFunctions::Magnitude(float a_A, float a_B)
 	{
 		float c = 0;
 		c += (sqrt((a_A*a_A)+(a_B*a_B)));
@@ -103,7 +119,7 @@ namespace MyMathLibrary
 	//Function for Conversion Between degrees and Radians
 		//If 0 is returned then something went wrong with conversion
 		//a_type: 1 = Degrees -> Radians || 2 = Radians -> Degrees
-	int MyMathLibrary::DegreeRadianConversion(int a_type, float a_numToConvert)
+	int MyMathFunctions::DegreeRadianConversion(int a_type, float a_numToConvert)
 	{
 		int result = 0;
 

@@ -1,5 +1,6 @@
 //MyMathLibrary.h
 //By: Jared Ramey || Started: 11/4/14
+#include <string>
 
 namespace MyMathLibrary
 {
@@ -10,9 +11,9 @@ namespace MyMathLibrary
 		//Function for Dot Product
 		float DotProduct(float a_Ax, float a_Ay, float a_Bx, float a_By);
 		//Function for Normalization
-
+		float NomralizeVector(std::string a_returnType, float a_x, float a_y, float a_length);
 		//Function for Cross Product
-		float CrossProduct(string a_returnType, float a_Ax, float a_Ay, float a_Az, float a_Bx, float a_By, float a_Bz);
+		float CrossProduct(std::string a_returnType, float a_Ax, float a_Ay, float a_Az, float a_Bx, float a_By, float a_Bz);
 		//Function for Magnitude
 		float Magnitude(float a_A, float a_B);
 		//Function for Operator Overloading
