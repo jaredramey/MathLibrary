@@ -78,6 +78,9 @@
   <ItemGroup>
     <ClInclude Include="MyMathLibrary.h" />
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MyMathLibrary.cpp" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

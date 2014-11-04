@@ -1,0 +1,32 @@
+||==================================================================================================================================================||
+||/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=||
+||==================================================================================================================================================||
+||-----------------THIS FILE IS FOR USE BY DEVELOPERS FOR NOTES RELATED TO MYMATHLIBRARY PROJECT DURING BUILD---------------------------------------||
+||==================================================================================================================================================||
+||/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=||
+||==================================================================================================================================================||
+
+
+
+Error List:
+	Error 001:                     
+	Conversion type not recognized = This error is related to the function DegreeRadianConversion. During the function call there is only 2 conversions
+					 that can be called (Degree -> Radian or Radian -> Degree). If this error is declared it means that the function call
+					 went out of bounds. The only calls that can be made are:
+						- DegreeRadianConversion( 1, [your num]);
+						- DegreeRadianConversion( 2, [your num]);
+
+
+	Error 002:
+	THE FUNCTION HAS ENCOUNTERED AN UNKOWN ISSUE = This error is related to the function DotProduct. This error indicates that the calculation within
+							the function has not calculated correctly and resulted with a 0. Contact the Developer so this
+							issue can be resolved.
+
+
+	Error 003:
+	Return Type Not Recognized = This error is related to the CrossProduct function. During the function call there are only three return types that can be 
+				     called (return X, return Y, return Z). If this error is declared it means that the function call went out of bounds. The
+				     only calls that can be made are:
+					- CrossProduct( [x || X] ,float a_Ax, float a_Ay, float a_Az, float a_Bx, float a_By, float a_Bz);
+					- CrossProduct( [y || Y] ,float a_Ax, float a_Ay, float a_Az, float a_Bx, float a_By, float a_Bz);
+					- CrossProduct( [z || Z] ,float a_Ax, float a_Ay, float a_Az, float a_Bx, float a_By, float a_Bz);
