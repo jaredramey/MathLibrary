@@ -44,6 +44,14 @@ namespace MyMathLibrary
 			resultY += (a_y/a_length);
 			return resultY;
 		}
+
+		else
+		{
+			cout << "ERROR 004: " << endl;
+			cout << "RETURN TYPE NOT RECOGNIZED" << endl;
+			system("pause");
+			return 0;
+		}
 	}
 	//Function for Cross Product
 		//a_Ax, a_Ay & a_Az = point 1 {x, y, z} || a_Bx, a_By, a_Bz = point 2 {x, y, z}
@@ -86,7 +94,18 @@ namespace MyMathLibrary
 		float c = 0;
 		c += (sqrt((a_A*a_A)+(a_B*a_B)));
 
-		return c;
+		if (c != 0)
+		{
+			return c;
+		}
+
+		else
+		{
+			cout << "ERROR 005: " << endl;
+			cout << "CALCULATION HAS RETURNED NULL" << endl;
+			system("pause");
+			return 0;
+		}
 	}
 	//Function for Operator Overloading
 

@@ -30,3 +30,16 @@ Error List:
 					- CrossProduct( [x || X] ,float a_Ax, float a_Ay, float a_Az, float a_Bx, float a_By, float a_Bz);
 					- CrossProduct( [y || Y] ,float a_Ax, float a_Ay, float a_Az, float a_Bx, float a_By, float a_Bz);
 					- CrossProduct( [z || Z] ,float a_Ax, float a_Ay, float a_Az, float a_Bx, float a_By, float a_Bz);
+
+	Error 004:
+	Return Type Not Recognized = This error is related to the NormalizeVector function. During the function call there are only two return types that can be 
+				     called (return X, return Y). If this error is declared it means that the function call went out of bounds. The
+				     only calls that can be made are:
+					- NomralizeVector( [x || X] , float a_x, float a_y, float a_length);
+					- NomralizeVector( [y || Y] , float a_x, float a_y, float a_length);
+
+
+	Error 005:
+	CALCULATION HAS RETURNED NULL = This error is related to the Magnitude function. After the call something happened within the calculation that returned
+					the result as 0 (NULL). If this error has been declared then either the math was wrong or strange inputs were detected.
+					Contact the Developer so that this issue can be resolved.
