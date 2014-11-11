@@ -7,7 +7,29 @@ namespace MyMathLibrary
 	class MyMathFunctions
 	{
 	public:
-	//All functions for 2D & 3D Dimensional Vectors
+	/*but you're not using any Vectors here. you can have a DotProduct function by itself (I would make it a static function
+	so you don't instantiate a Math library object to use it however) but normrmally it would be a function of a Vector class
+	that you would call with another Vector to have the dot product returned.
+	
+	e.g.
+	class Vector2
+	{
+		float DotProduct(const Vector2& rhs);
+	};
+	
+	use:
+		void main()
+		{
+			Vector2 v1(1,1);
+			Vector2 v2 (2,2);
+			float dotProduct = v1.DotProduct(v2);
+		}
+	
+	This should get you on the right path. If you have question or prefer me to shut the fuck up feel free to ask / let me know.
+	jefjohms@gmail.com
+	jeffrey.johnson@students.aie.edu.au
+	*/
+		//All functions for 2D & 3D Dimensional Vectors
 		//Function for Dot Product
 		float DotProduct(float a_Ax, float a_Ay, float a_Bx, float a_By);
 		//Function for Normalization
