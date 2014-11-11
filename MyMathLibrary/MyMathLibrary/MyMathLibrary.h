@@ -14,7 +14,7 @@ namespace MyMathLibrary
 	e.g.
 	class Vector2
 	{
-		float DotProduct(const Vector2 rhs);
+		float DotProduct(const Vector2& rhs);
 	};
 	
 	use:
