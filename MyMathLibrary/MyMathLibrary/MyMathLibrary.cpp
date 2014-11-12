@@ -2,6 +2,7 @@
 #include "MyMathLibrary.h"
 #include <stdexcept>
 #include <iostream>
+#include <math.h>
 
 using namespace std;
 
@@ -116,20 +117,74 @@ namespace MyMathLibrary
 	//Function for Orthographic Projection Creation
 
 	//Function for Scale
+	float MyMathFunctions::Scale2DVector(float a_vector[1][3], float a_xChange, float a_yChange)
+	{
+		float changeMatrix[3][3] =
+		{
+			{ a_xChange, 0, 0 },
+			{ 0, a_yChange, 0 },
+			{ 0, 0, 1 }
+		};
 
-	//Function for Create Rotation
+		a_vector[1][1] = ((a_vector[1][1] * changeMatrix[1][1]) + (a_vector[1][2] * changeMatrix[1][2]) + (a_vector[1][3] * changeMatrix[1][3]));
+		a_vector[1][2] = ((a_vector[1][1] * changeMatrix[2][1]) + (a_vector[1][2] * changeMatrix[2][2]) + (a_vector[1][3] * changeMatrix[2][3]));
+		a_vector[1][3] = ((a_vector[1][1] * changeMatrix[3][1]) + (a_vector[1][2] * changeMatrix[3][2]) + (a_vector[1][3] * changeMatrix[3][3]));
 
-	//Function for Tranform Point
+		return a_vector[1][3];
+	}
+	//Function for Rotation
+	float MyMathFunctions::Rotate2DVector(float a_vector[1][3], float a_degreeChange)
+	{
+		float changeMatrix[3][3] =
+		{
+			{ cos(a_degreeChange), sin(a_degreeChange), 0 },
+			{ asin(a_degreeChange), cos(a_degreeChange), 0 },
+			{ 0, 0, 1 }
+		};
+
+		a_vector[1][1] = ((a_vector[1][1] * changeMatrix[1][1]) + (a_vector[1][2] * changeMatrix[1][2]) + (a_vector[1][3] * changeMatrix[1][3]));
+		a_vector[1][2] = ((a_vector[1][1] * changeMatrix[2][1]) + (a_vector[1][2] * changeMatrix[2][2]) + (a_vector[1][3] * changeMatrix[2][3]));
+		a_vector[1][3] = ((a_vector[1][1] * changeMatrix[3][1]) + (a_vector[1][2] * changeMatrix[3][2]) + (a_vector[1][3] * changeMatrix[3][3]));
+
+		return a_vector[1][3];
+	}
+	//Function for Transform Point
 
 	//Function for Transform Vector
+	float MyMathFunctions::Transform2DVector(float a_vector[1][3], float a_xChange, float a_yChange)
+	{
+		//Matrix for translating a 2D vector
+		float changeMatrix[3][3] = 
+		{
+			{ 1, 0, 0 },
+			{ 0, 1, 0 },
+			{ a_xChange, a_yChange, 1 } 
+		};
+
+		a_vector[1][1] = ((a_vector[1][1]*changeMatrix[1][1])+(a_vector[1][2]*changeMatrix[1][2])+(a_vector[1][3]*changeMatrix[1][3]));
+		a_vector[1][2] = ((a_vector[1][1] * changeMatrix[2][1]) + (a_vector[1][2] * changeMatrix[2][2]) + (a_vector[1][3] * changeMatrix[2][3]));
+		a_vector[1][3] = ((a_vector[1][1] * changeMatrix[3][1]) + (a_vector[1][2] * changeMatrix[3][2]) + (a_vector[1][3] * changeMatrix[3][3]));
+
+		return a_vector[1][3];
+	}
 
 	//Function for Matrix Multiplication
+	float MyMathFunctions::My2DMatrixMultiplication(float a_vector[1][3], float a_matrix[3][3])
+	{
+		float resultMatrix[1][3];
+
+		resultMatrix[1][1] = ((a_vector[1][1] * a_matrix[1][1]) + (a_vector[1][2] * a_matrix[1][2]) + (a_vector[1][3] * a_matrix[1][3]));
+		resultMatrix[1][2] = ((a_vector[1][1] * a_matrix[2][1]) + (a_vector[1][2] * a_matrix[2][2]) + (a_vector[1][3] * a_matrix[2][3]));
+		resultMatrix[1][3] = ((a_vector[1][1] * a_matrix[3][1]) + (a_vector[1][2] * a_matrix[3][2]) + (a_vector[1][3] * a_matrix[3][3]));
+
+		return resultMatrix[1][3];
+	}
 
 
 	//All functions for Vector 4
 	//Function for Normilization
 
-	//Function for Contruction from Hexadecimal Color Value
+	//Function for Construction from Hexadecimal Color Value
 
 
 	//All functions for common math Functionality
