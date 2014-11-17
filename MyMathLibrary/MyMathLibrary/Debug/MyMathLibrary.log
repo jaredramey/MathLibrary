@@ -1,15 +1,37 @@
-﻿Build started 11/12/2014 10:12:56 AM.
+﻿Build started 11/17/2014 2:42:50 PM.
      1>Project "C:\Users\jared.ramey\Documents\GitHub\MathLibrary\MyMathLibrary\MyMathLibrary\MyMathLibrary.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt MyMathLibrary.cpp
          MyMathLibrary.cpp
-     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mymathlibrary.cpp(191): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mymathlibrary.cpp(197): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-       Lib:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\jared.ramey\Documents\GitHub\MathLibrary\MyMathLibrary\Debug\MyMathLibrary.lib" /NOLOGO Debug\MyMathLibrary.obj
-         MyMathLibrary.vcxproj -> C:\Users\jared.ramey\Documents\GitHub\MathLibrary\MyMathLibrary\Debug\MyMathLibrary.lib
-     1>Done Building Project "C:\Users\jared.ramey\Documents\GitHub\MathLibrary\MyMathLibrary\MyMathLibrary\MyMathLibrary.vcxproj" (Build target(s)).
+     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mymathlibrary.h(50): error C2143: syntax error : missing ';' before '<'
+     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mymathlibrary.h(50): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mymathlibrary.h(50): error C2238: unexpected token(s) preceding ';'
+     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mymathlibrary.h(53): error C2143: syntax error : missing ';' before '<'
+     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mymathlibrary.h(53): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mymathlibrary.h(53): error C2238: unexpected token(s) preceding ';'
+     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mymathlibrary.h(58): error C2143: syntax error : missing ';' before '<'
+     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mymathlibrary.h(58): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mymathlibrary.h(58): error C2238: unexpected token(s) preceding ';'
+     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mymathlibrary.h(61): error C2143: syntax error : missing ';' before '<'
+     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mymathlibrary.h(61): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mymathlibrary.h(61): error C2238: unexpected token(s) preceding ';'
+     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mymathlibrary.h(64): error C2143: syntax error : missing ';' before '<'
+     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mymathlibrary.h(64): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mymathlibrary.h(64): error C2238: unexpected token(s) preceding ';'
+     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mymathlibrary.cpp(121): error C2039: 'Scale2DVector' : is not a member of 'MyMathLibrary::MyMathFunctions'
+                 c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mymathlibrary.h(8) : see declaration of 'MyMathLibrary::MyMathFunctions'
+     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mymathlibrary.cpp(145): error C2039: 'Rotate2DVector' : is not a member of 'MyMathLibrary::MyMathFunctions'
+                 c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mymathlibrary.h(8) : see declaration of 'MyMathLibrary::MyMathFunctions'
+     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mymathlibrary.cpp(170): error C2039: 'Transform2DVector' : is not a member of 'MyMathLibrary::MyMathFunctions'
+                 c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mymathlibrary.h(8) : see declaration of 'MyMathLibrary::MyMathFunctions'
+     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mymathlibrary.cpp(194): error C2039: 'My2DMatrixMultiplication' : is not a member of 'MyMathLibrary::MyMathFunctions'
+                 c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mymathlibrary.h(8) : see declaration of 'MyMathLibrary::MyMathFunctions'
+     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mymathlibrary.cpp(205): error C2039: 'MyMatrixMultiplication' : is not a member of 'MyMathLibrary::MyMathFunctions'
+                 c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mymathlibrary.h(8) : see declaration of 'MyMathLibrary::MyMathFunctions'
+     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mymathlibrary.cpp(240): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mymathlibrary.cpp(246): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>Done Building Project "C:\Users\jared.ramey\Documents\GitHub\MathLibrary\MyMathLibrary\MyMathLibrary\MyMathLibrary.vcxproj" (Build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:02.67
+Time Elapsed 00:00:00.78

@@ -47,18 +47,21 @@ namespace MyMathLibrary
 		//Function for Orthographic Projection Creation
 
 		//Function for Scale
-		float Scale2DVector(float a_vector[1][3], float a_xChange, float a_yChange);
+		vector<vector<float>> Scale2DVector(float a_xChange, float a_yChange, vector<vector<float>>& someVector);
 
 		//Function for Rotation
-		float Rotate2DVector(float a_vector[1][3], float a_degreeChange);
+		vector<vector<float>> Rotate2DVector(vector<vector<float>>& someVector, float a_degreeChange);
 
 		//Function for Transform Point
 
 		//Function for Transform Vector
-		float Transform2DVector(float a_vector[1][3], float a_xChange, float a_yChange);
+		vector<vector<float>> Transform2DVector(vector<vector<float>>& someVector, float a_xChange, float a_yChange);
 
 		//Function for Matrix Multiplication
-		float My2DMatrixMultiplication(float a_vector[1][3], float a_matrix[3][3]);
+		vector<float> My2DMatrixMultiplication(vector<float>& someVector, vector<vector<float>>& someOtherVector);
+
+		//function for matrix multiplication between two matricies
+		vector<vector<float>> MyMatrixMultiplication(vector<vector<float>>& someVector, vector<vector<float>>& someOtherVector);
 
 	//All functions for Vector 4
 		//Function for Normilization
