@@ -52,8 +52,6 @@ namespace MyMathLibrary
 		//Function for Rotation
 		vector<vector<float>> Rotate2DVector(vector<vector<float>>& someVector, float a_degreeChange);
 
-		//Function for Transform Point
-
 		//Function for Transform Vector
 		vector<vector<float>> Transform2DVector(vector<vector<float>>& someVector, float a_xChange, float a_yChange);
 
