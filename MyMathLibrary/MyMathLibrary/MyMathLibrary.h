@@ -52,7 +52,7 @@ namespace MyMathLibrary
 
 	//All functions for 3x3 & 4x4 Matrix's
 		//Function for Orthographic Projection Creation
-
+		std::vector<std::vector<float>> OrthographicProj(float a_left, float a_right, float a_top, float a_bottom, float a_near, float a_far, std::vector<std::vector<float>>& someVector);
 
 		//Function for Scaling a [3]x[3] matrix
 		std::vector<std::vector<float>> Scale3x3Matrix(float a_xChange, float a_yChange, std::vector<std::vector<float>>& someVector);

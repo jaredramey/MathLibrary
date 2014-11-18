@@ -122,7 +122,20 @@ namespace MyMathLibrary
 
 	//All functions for 3x3 & 4x4 Matrix's
 	//Function for Orthographic Projection Creation
+	std::vector<std::vector<float>> MyMathFunctions::OrthographicProj(float a_left, float a_right, float a_top, float a_bottom, float a_near, float a_far, std::vector<std::vector<float>>& someMatrix)
+	{																							//||=============================================||
+		std::vector<std::vector<float>> changeMatrix =											//||-------The Matrix in column row major -------||
+		{																						//||=============================================||
+			{ (2 / (a_right - a_left)), 0, 0, (((a_right + a_left) / (a_right - a_left))*-1) }, //  |(2 / (a_right - a_left)), 0, 0, 0|
+			{ 0, (2 / (a_top - a_bottom)), 0, (((a_top + a_bottom) / (a_top - a_bottom))*-1) }, //  |0, (2 / (a_top - a_bottom)), 0, 0|
+			{ 0, 0, (-1 / (a_far - a_near)), (a_near / (a_far - a_near)) },                     //  |0, 0, (-1 / (a_far - a_near)), 0 |
+			{0, 0, 0, 1 }                                                                       //  |(((a_right + a_left) / (a_right - a_left))*-1), (((a_top + a_bottom) / (a_top - a_bottom))*-1), (a_near / (a_far - a_near))|
+		};
 
+		//multiply with already made multiplication function and then return the result
+		return My4x4MatrixMultiplication(someMatrix, changeMatrix);
+
+	}
 
 	//Function for Scaling a [3]x[3] matrix
 	std::vector<std::vector<float>> MyMathFunctions::Scale3x3Matrix(float a_xChange, float a_yChange, std::vector<std::vector<float>>& someMatrix)
@@ -347,11 +360,13 @@ namespace MyMathLibrary
 	//All functions for Vector 4
 	//Function for Normilization
 
+
 	//Function for Construction from Hexadecimal Color Value
 
 
 	//All functions for common math Functionality
 	//Function for Linear Interpolation for Scalar Values
+
 
 	//Function for Conversion Between degrees and Radians
 		//If 0 is returned then something went wrong with conversion
@@ -381,6 +396,7 @@ namespace MyMathLibrary
 		}
 	}
 	//Function for Testing Scalar Value for Power of Two
+
 
 	//Function for Bitwise Operations
 
