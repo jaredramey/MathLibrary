@@ -1,9 +1,6 @@
 //MyMathLibrary.cpp
 #include "MyMathLibrary.h"
 #include <stdexcept>
-#include <iostream>
-#include <math.h>
-#include <vector>
 
 using namespace std;
 
@@ -29,6 +26,7 @@ namespace MyMathLibrary
 			return result;
 		}
 	}
+
 	//Function for Normalization
 	float MyMathFunctions::NomralizeVector(string a_returnType, float a_x, float a_y, float a_length)
 	{
@@ -55,6 +53,7 @@ namespace MyMathLibrary
 			return 0;
 		}
 	}
+
 	//Function for Cross Product
 		//a_Ax, a_Ay & a_Az = point 1 {x, y, z} || a_Bx, a_By, a_Bz = point 2 {x, y, z}
 	float MyMathFunctions::CrossProduct(string a_returnType, float a_Ax, float a_Ay, float a_Az, float a_Bx, float a_By, float a_Bz)
@@ -90,6 +89,7 @@ namespace MyMathLibrary
 		}
 		
 	}
+
 	//Function for Magnitude
 	float MyMathFunctions::Magnitude(float a_A, float a_B)
 	{
@@ -109,16 +109,23 @@ namespace MyMathLibrary
 			return 0;
 		}
 	}
+
 	//Function for Operator Overloading
 
-	//Function for Linear Interpolation
 
+	//Function for Linear Interpolation
+		//Algorythm credit to http://en.wikipedia.org/wiki/Linear_interpolation
+	float MyMathFunctions::LinearInterpolation(float v0, float v1, float t)
+	{
+		return (1-t)*v0 + t*v1;
+	}
 
 	//All functions for 3x3 & 4x4 Matrix's
 	//Function for Orthographic Projection Creation
 
-	//Function for Scale
-	vector<vector<float>> MyMathFunctions::Scale2DVector(float a_xChange, float a_yChange, vector<vector<float>>& someMatrix)
+
+	//Function for Scaling a [3]x[3] matrix
+	std::vector<std::vector<float>> MyMathFunctions::Scale3x3Matrix(float a_xChange, float a_yChange, std::vector<std::vector<float>>& someMatrix)
 	{
 		float changeMatrix[3][3] =
 		{
@@ -141,8 +148,40 @@ namespace MyMathLibrary
 		return someMatrix;
 	}
 
-	//Function for Rotation
-	vector<vector<float>> MyMathFunctions::Rotate2DVector(vector<vector<float>>& someMatrix, float a_degreeChange)
+	//function for Scaling a [4]x[4] matrix
+	std::vector<std::vector<float>> MyMathFunctions::Scale4x4Matrix(float a_xChange, float a_yChange, float a_zChange , std::vector<std::vector<float>>& someMatrix)
+	{
+		float changeMatrix[4][4] =
+		{
+			{ a_xChange, 0, 0, 0 },
+			{ 0, a_yChange, 0, 0 },
+			{ 0, 0, a_zChange, 0 },
+			{0, 0, 0, 1}
+		};
+
+		someMatrix[0][0] = ((someMatrix[0][0] * changeMatrix[0][0]) + (someMatrix[0][1] * changeMatrix[0][1]) + (someMatrix[0][2] * changeMatrix[0][2]) + (someMatrix[0][3] * changeMatrix[0][3]));
+		someMatrix[0][1] = ((someMatrix[0][0] * changeMatrix[1][0]) + (someMatrix[0][1] * changeMatrix[1][1]) + (someMatrix[0][2] * changeMatrix[1][2]) + (someMatrix[0][3] * changeMatrix[1][3]));
+		someMatrix[0][2] = ((someMatrix[0][0] * changeMatrix[2][0]) + (someMatrix[0][1] * changeMatrix[2][1]) + (someMatrix[0][2] * changeMatrix[2][2]) + (someMatrix[0][3] * changeMatrix[2][3]));
+		someMatrix[0][3] = ((someMatrix[0][0] * changeMatrix[3][0]) + (someMatrix[0][1] * changeMatrix[3][1]) + (someMatrix[0][2] * changeMatrix[3][2]) + (someMatrix[0][3] * changeMatrix[3][3]));
+		someMatrix[1][0] = ((someMatrix[1][0] * changeMatrix[0][0]) + (someMatrix[1][1] * changeMatrix[0][1]) + (someMatrix[1][2] * changeMatrix[0][2]) + (someMatrix[1][3] * changeMatrix[0][3]));
+		someMatrix[1][1] = ((someMatrix[1][0] * changeMatrix[1][0]) + (someMatrix[1][1] * changeMatrix[1][1]) + (someMatrix[1][2] * changeMatrix[1][2]) + (someMatrix[1][3] * changeMatrix[1][3]));
+		someMatrix[1][2] = ((someMatrix[1][0] * changeMatrix[2][0]) + (someMatrix[1][1] * changeMatrix[2][1]) + (someMatrix[1][2] * changeMatrix[2][2]) + (someMatrix[1][3] * changeMatrix[2][3]));
+		someMatrix[1][3] = ((someMatrix[1][0] * changeMatrix[3][0]) + (someMatrix[1][1] * changeMatrix[3][1]) + (someMatrix[1][2] * changeMatrix[3][2]) + (someMatrix[1][3] * changeMatrix[3][3]));
+		someMatrix[2][0] = ((someMatrix[2][0] * changeMatrix[0][0]) + (someMatrix[2][1] * changeMatrix[0][1]) + (someMatrix[2][2] * changeMatrix[0][2]) + (someMatrix[2][3] * changeMatrix[0][3]));
+		someMatrix[2][1] = ((someMatrix[2][0] * changeMatrix[1][0]) + (someMatrix[2][1] * changeMatrix[1][1]) + (someMatrix[2][2] * changeMatrix[1][2]) + (someMatrix[2][3] * changeMatrix[1][3]));
+		someMatrix[2][2] = ((someMatrix[2][0] * changeMatrix[2][0]) + (someMatrix[2][1] * changeMatrix[2][1]) + (someMatrix[2][2] * changeMatrix[2][2]) + (someMatrix[2][3] * changeMatrix[2][3]));
+		someMatrix[2][3] = ((someMatrix[2][0] * changeMatrix[3][0]) + (someMatrix[2][1] * changeMatrix[3][1]) + (someMatrix[2][2] * changeMatrix[3][2]) + (someMatrix[2][3] * changeMatrix[3][3]));
+		someMatrix[3][0] = ((someMatrix[3][0] * changeMatrix[0][0]) + (someMatrix[3][1] * changeMatrix[0][1]) + (someMatrix[3][2] * changeMatrix[0][2]) + (someMatrix[3][3] * changeMatrix[0][3]));
+		someMatrix[3][1] = ((someMatrix[3][0] * changeMatrix[1][0]) + (someMatrix[3][1] * changeMatrix[1][1]) + (someMatrix[3][2] * changeMatrix[1][2]) + (someMatrix[3][3] * changeMatrix[1][3]));
+		someMatrix[3][2] = ((someMatrix[3][0] * changeMatrix[2][0]) + (someMatrix[3][1] * changeMatrix[2][1]) + (someMatrix[3][2] * changeMatrix[2][2]) + (someMatrix[3][3] * changeMatrix[2][3]));
+		someMatrix[3][3] = ((someMatrix[3][0] * changeMatrix[3][0]) + (someMatrix[3][1] * changeMatrix[3][1]) + (someMatrix[3][2] * changeMatrix[3][2]) + (someMatrix[3][3] * changeMatrix[3][3]));
+
+
+		return someMatrix;
+	}
+
+	//Function for Rotating a [3]x[3] matrix
+	std::vector<std::vector<float>> MyMathFunctions::Rotate3x3Matrix(std::vector<std::vector<float>>& someMatrix, float a_degreeChange)
 	{
 		float changeMatrix[3][3] =
 		{
@@ -164,10 +203,41 @@ namespace MyMathLibrary
 		return someMatrix;
 	}
 
+	//Function for Rotating a [4]x[4] matrix
+	std::vector<std::vector<float>> MyMathFunctions::Rotate4x4Matrix(std::vector<std::vector<float>>& someMatrix, float a_degreeChange)
+	{
+		float changeMatrix[4][4] =
+		{
+			{ (cos(a_degreeChange)), (sin(a_degreeChange)), 0, 0 },
+			{ (asin(a_degreeChange)), (cos(a_degreeChange)), 0, 0 },
+			{ 0, 0, 1, 0 },
+			{ 0, 0, 0, 1 }
+		};
+
+		someMatrix[0][0] = ((someMatrix[0][0] * changeMatrix[0][0]) + (someMatrix[0][1] * changeMatrix[0][1]) + (someMatrix[0][2] * changeMatrix[0][2]) + (someMatrix[0][3] * changeMatrix[0][3]));
+		someMatrix[0][1] = ((someMatrix[0][0] * changeMatrix[1][0]) + (someMatrix[0][1] * changeMatrix[1][1]) + (someMatrix[0][2] * changeMatrix[1][2]) + (someMatrix[0][3] * changeMatrix[1][3]));
+		someMatrix[0][2] = ((someMatrix[0][0] * changeMatrix[2][0]) + (someMatrix[0][1] * changeMatrix[2][1]) + (someMatrix[0][2] * changeMatrix[2][2]) + (someMatrix[0][3] * changeMatrix[2][3]));
+		someMatrix[0][3] = ((someMatrix[0][0] * changeMatrix[3][0]) + (someMatrix[0][1] * changeMatrix[3][1]) + (someMatrix[0][2] * changeMatrix[3][2]) + (someMatrix[0][3] * changeMatrix[3][3]));
+		someMatrix[1][0] = ((someMatrix[1][0] * changeMatrix[0][0]) + (someMatrix[1][1] * changeMatrix[0][1]) + (someMatrix[1][2] * changeMatrix[0][2]) + (someMatrix[1][3] * changeMatrix[0][3]));
+		someMatrix[1][1] = ((someMatrix[1][0] * changeMatrix[1][0]) + (someMatrix[1][1] * changeMatrix[1][1]) + (someMatrix[1][2] * changeMatrix[1][2]) + (someMatrix[1][3] * changeMatrix[1][3]));
+		someMatrix[1][2] = ((someMatrix[1][0] * changeMatrix[2][0]) + (someMatrix[1][1] * changeMatrix[2][1]) + (someMatrix[1][2] * changeMatrix[2][2]) + (someMatrix[1][3] * changeMatrix[2][3]));
+		someMatrix[1][3] = ((someMatrix[1][0] * changeMatrix[3][0]) + (someMatrix[1][1] * changeMatrix[3][1]) + (someMatrix[1][2] * changeMatrix[3][2]) + (someMatrix[1][3] * changeMatrix[3][3]));
+		someMatrix[2][0] = ((someMatrix[2][0] * changeMatrix[0][0]) + (someMatrix[2][1] * changeMatrix[0][1]) + (someMatrix[2][2] * changeMatrix[0][2]) + (someMatrix[2][3] * changeMatrix[0][3]));
+		someMatrix[2][1] = ((someMatrix[2][0] * changeMatrix[1][0]) + (someMatrix[2][1] * changeMatrix[1][1]) + (someMatrix[2][2] * changeMatrix[1][2]) + (someMatrix[2][3] * changeMatrix[1][3]));
+		someMatrix[2][2] = ((someMatrix[2][0] * changeMatrix[2][0]) + (someMatrix[2][1] * changeMatrix[2][1]) + (someMatrix[2][2] * changeMatrix[2][2]) + (someMatrix[2][3] * changeMatrix[2][3]));
+		someMatrix[2][3] = ((someMatrix[2][0] * changeMatrix[3][0]) + (someMatrix[2][1] * changeMatrix[3][1]) + (someMatrix[2][2] * changeMatrix[3][2]) + (someMatrix[2][3] * changeMatrix[3][3]));
+		someMatrix[3][0] = ((someMatrix[3][0] * changeMatrix[0][0]) + (someMatrix[3][1] * changeMatrix[0][1]) + (someMatrix[3][2] * changeMatrix[0][2]) + (someMatrix[3][3] * changeMatrix[0][3]));
+		someMatrix[3][1] = ((someMatrix[3][0] * changeMatrix[1][0]) + (someMatrix[3][1] * changeMatrix[1][1]) + (someMatrix[3][2] * changeMatrix[1][2]) + (someMatrix[3][3] * changeMatrix[1][3]));
+		someMatrix[3][2] = ((someMatrix[3][0] * changeMatrix[2][0]) + (someMatrix[3][1] * changeMatrix[2][1]) + (someMatrix[3][2] * changeMatrix[2][2]) + (someMatrix[3][3] * changeMatrix[2][3]));
+		someMatrix[3][3] = ((someMatrix[3][0] * changeMatrix[3][0]) + (someMatrix[3][1] * changeMatrix[3][1]) + (someMatrix[3][2] * changeMatrix[3][2]) + (someMatrix[3][3] * changeMatrix[3][3]));
+
+		return someMatrix;
+	}
+
 	//Function for Transform Point
 
-	//Function for Transform Vector
-	vector<vector<float>> MyMathFunctions::Transform2DVector(vector<vector<float>>& someMatrix, float a_xChange, float a_yChange)
+	//Function for Transforming a [3]x[3] matrix
+	std::vector<std::vector<float>> MyMathFunctions::Transform3x3Matrix(std::vector<std::vector<float>>& someMatrix, float a_xChange, float a_yChange)
 	{
 		//Matrix for translating a 2D vector
 		float changeMatrix[3][3] = 
@@ -190,8 +260,40 @@ namespace MyMathLibrary
 		return someMatrix;
 	}
 
-	//Function for Matrix Multiplication in between a vector and matrix
-	vector<float> MyMathFunctions::My2DMatrixMultiplication(vector<float>& someVector, vector<vector<float>>& someMatrix)
+	//Function for Transforming a [4]x[4] matrix
+	std::vector<std::vector<float>> MyMathFunctions::Transform4x4Matrix(std::vector<std::vector<float>>& someMatrix, float a_xChange, float a_yChange, float a_zChange)
+	{
+		float changeMatrix[4][4] =
+		{
+			{ 1, 0, 0, 0 },
+			{ 0, 1, 0, 0 },
+			{ 0, 0, 1, 0 },
+			{ a_xChange, a_yChange, a_zChange, 1 }
+		};
+
+		someMatrix[0][0] = ((someMatrix[0][0] * changeMatrix[0][0]) + (someMatrix[0][1] * changeMatrix[0][1]) + (someMatrix[0][2] * changeMatrix[0][2]) + (someMatrix[0][3] * changeMatrix[0][3]));
+		someMatrix[0][1] = ((someMatrix[0][0] * changeMatrix[1][0]) + (someMatrix[0][1] * changeMatrix[1][1]) + (someMatrix[0][2] * changeMatrix[1][2]) + (someMatrix[0][3] * changeMatrix[1][3]));
+		someMatrix[0][2] = ((someMatrix[0][0] * changeMatrix[2][0]) + (someMatrix[0][1] * changeMatrix[2][1]) + (someMatrix[0][2] * changeMatrix[2][2]) + (someMatrix[0][3] * changeMatrix[2][3]));
+		someMatrix[0][3] = ((someMatrix[0][0] * changeMatrix[3][0]) + (someMatrix[0][1] * changeMatrix[3][1]) + (someMatrix[0][2] * changeMatrix[3][2]) + (someMatrix[0][3] * changeMatrix[3][3]));
+		someMatrix[1][0] = ((someMatrix[1][0] * changeMatrix[0][0]) + (someMatrix[1][1] * changeMatrix[0][1]) + (someMatrix[1][2] * changeMatrix[0][2]) + (someMatrix[1][3] * changeMatrix[0][3]));
+		someMatrix[1][1] = ((someMatrix[1][0] * changeMatrix[1][0]) + (someMatrix[1][1] * changeMatrix[1][1]) + (someMatrix[1][2] * changeMatrix[1][2]) + (someMatrix[1][3] * changeMatrix[1][3]));
+		someMatrix[1][2] = ((someMatrix[1][0] * changeMatrix[2][0]) + (someMatrix[1][1] * changeMatrix[2][1]) + (someMatrix[1][2] * changeMatrix[2][2]) + (someMatrix[1][3] * changeMatrix[2][3]));
+		someMatrix[1][3] = ((someMatrix[1][0] * changeMatrix[3][0]) + (someMatrix[1][1] * changeMatrix[3][1]) + (someMatrix[1][2] * changeMatrix[3][2]) + (someMatrix[1][3] * changeMatrix[3][3]));
+		someMatrix[2][0] = ((someMatrix[2][0] * changeMatrix[0][0]) + (someMatrix[2][1] * changeMatrix[0][1]) + (someMatrix[2][2] * changeMatrix[0][2]) + (someMatrix[2][3] * changeMatrix[0][3]));
+		someMatrix[2][1] = ((someMatrix[2][0] * changeMatrix[1][0]) + (someMatrix[2][1] * changeMatrix[1][1]) + (someMatrix[2][2] * changeMatrix[1][2]) + (someMatrix[2][3] * changeMatrix[1][3]));
+		someMatrix[2][2] = ((someMatrix[2][0] * changeMatrix[2][0]) + (someMatrix[2][1] * changeMatrix[2][1]) + (someMatrix[2][2] * changeMatrix[2][2]) + (someMatrix[2][3] * changeMatrix[2][3]));
+		someMatrix[2][3] = ((someMatrix[2][0] * changeMatrix[3][0]) + (someMatrix[2][1] * changeMatrix[3][1]) + (someMatrix[2][2] * changeMatrix[3][2]) + (someMatrix[2][3] * changeMatrix[3][3]));
+		someMatrix[3][0] = ((someMatrix[3][0] * changeMatrix[0][0]) + (someMatrix[3][1] * changeMatrix[0][1]) + (someMatrix[3][2] * changeMatrix[0][2]) + (someMatrix[3][3] * changeMatrix[0][3]));
+		someMatrix[3][1] = ((someMatrix[3][0] * changeMatrix[1][0]) + (someMatrix[3][1] * changeMatrix[1][1]) + (someMatrix[3][2] * changeMatrix[1][2]) + (someMatrix[3][3] * changeMatrix[1][3]));
+		someMatrix[3][2] = ((someMatrix[3][0] * changeMatrix[2][0]) + (someMatrix[3][1] * changeMatrix[2][1]) + (someMatrix[3][2] * changeMatrix[2][2]) + (someMatrix[3][3] * changeMatrix[2][3]));
+		someMatrix[3][3] = ((someMatrix[3][0] * changeMatrix[3][0]) + (someMatrix[3][1] * changeMatrix[3][1]) + (someMatrix[3][2] * changeMatrix[3][2]) + (someMatrix[3][3] * changeMatrix[3][3]));
+
+
+		return someMatrix;
+	}
+	
+	//Function for Matrix Multiplication in between a vector [3]x[1] and matrix [3]x[3]
+	std::vector<float> MyMathFunctions::My2DMatrixMultiplication(std::vector<float>& someVector, std::vector<std::vector<float>>& someMatrix)
 	{
 
 		someVector[0] = ((someVector[0] * someMatrix[0][0]) + (someVector[0] * someMatrix[0][1]) + (someVector[0] * someMatrix[0][2]));
@@ -201,10 +303,9 @@ namespace MyMathLibrary
 		return someVector;
 	}
 
-	//function for matrix multiplication between two matricies
-	vector<vector<float>> MyMathFunctions::MyMatrixMultiplication(vector<vector<float>>& someMatrix, vector<vector<float>>& someOtherMatrix)
+	//function for matrix multiplication between two [3]x[3] matricies
+	std::vector<std::vector<float>> MyMathFunctions::My3x3MatrixMultiplication(std::vector<std::vector<float>>& someMatrix, std::vector<std::vector<float>>& someOtherMatrix)
 	{
-
 		someMatrix[0][0] = ((someMatrix[0][0] * someOtherMatrix[0][0]) + (someMatrix[0][1] * someOtherMatrix[0][1]) + (someMatrix[0][2] * someOtherMatrix[0][2]));
 		someMatrix[0][1] = ((someMatrix[0][0] * someOtherMatrix[1][0]) + (someMatrix[0][1] * someOtherMatrix[1][1]) + (someMatrix[0][2] * someOtherMatrix[1][2]));
 		someMatrix[0][2] = ((someMatrix[0][0] * someOtherMatrix[2][0]) + (someMatrix[0][1] * someOtherMatrix[2][1]) + (someMatrix[0][2] * someOtherMatrix[2][2]));
@@ -216,6 +317,30 @@ namespace MyMathLibrary
 		someMatrix[2][2] = ((someMatrix[2][0] * someOtherMatrix[2][0]) + (someMatrix[2][1] * someOtherMatrix[2][1]) + (someMatrix[2][2] * someOtherMatrix[2][2]));
 
 		return someMatrix;
+	}
+
+	//Function for matrix multiplication between two [4]x[4] matricies
+	std::vector<std::vector<float>> MyMathFunctions::My4x4MatrixMultiplication(std::vector<std::vector<float>>& someMatrix, std::vector<std::vector<float>>& someOtherMatrix)
+	{
+		someMatrix[0][0] = ((someMatrix[0][0] * someOtherMatrix[0][0]) + (someMatrix[0][1] * someOtherMatrix[0][1]) + (someMatrix[0][2] * someOtherMatrix[0][2]) + (someMatrix[0][3] * someOtherMatrix[0][3]));
+		someMatrix[0][1] = ((someMatrix[0][0] * someOtherMatrix[1][0]) + (someMatrix[0][1] * someOtherMatrix[1][1]) + (someMatrix[0][2] * someOtherMatrix[1][2]) + (someMatrix[0][3] * someOtherMatrix[1][3]));
+		someMatrix[0][2] = ((someMatrix[0][0] * someOtherMatrix[2][0]) + (someMatrix[0][1] * someOtherMatrix[2][1]) + (someMatrix[0][2] * someOtherMatrix[2][2]) + (someMatrix[0][3] * someOtherMatrix[2][3]));
+		someMatrix[0][3] = ((someMatrix[0][0] * someOtherMatrix[3][0]) + (someMatrix[0][1] * someOtherMatrix[3][1]) + (someMatrix[0][2] * someOtherMatrix[3][2]) + (someMatrix[0][3] * someOtherMatrix[3][3]));
+		someMatrix[1][0] = ((someMatrix[1][0] * someOtherMatrix[0][0]) + (someMatrix[1][1] * someOtherMatrix[0][1]) + (someMatrix[1][2] * someOtherMatrix[0][2]) + (someMatrix[1][3] * someOtherMatrix[0][3]));
+		someMatrix[1][1] = ((someMatrix[1][0] * someOtherMatrix[1][0]) + (someMatrix[1][1] * someOtherMatrix[1][1]) + (someMatrix[1][2] * someOtherMatrix[1][2]) + (someMatrix[1][3] * someOtherMatrix[1][3]));
+		someMatrix[1][2] = ((someMatrix[1][0] * someOtherMatrix[2][0]) + (someMatrix[1][1] * someOtherMatrix[2][1]) + (someMatrix[1][2] * someOtherMatrix[2][2]) + (someMatrix[1][3] * someOtherMatrix[2][3]));
+		someMatrix[1][3] = ((someMatrix[1][0] * someOtherMatrix[3][0]) + (someMatrix[1][1] * someOtherMatrix[3][1]) + (someMatrix[1][2] * someOtherMatrix[3][2]) + (someMatrix[1][3] * someOtherMatrix[3][3]));
+		someMatrix[2][0] = ((someMatrix[2][0] * someOtherMatrix[0][0]) + (someMatrix[2][1] * someOtherMatrix[0][1]) + (someMatrix[2][2] * someOtherMatrix[0][2]) + (someMatrix[2][3] * someOtherMatrix[0][3]));
+		someMatrix[2][1] = ((someMatrix[2][0] * someOtherMatrix[1][0]) + (someMatrix[2][1] * someOtherMatrix[1][1]) + (someMatrix[2][2] * someOtherMatrix[1][2]) + (someMatrix[2][3] * someOtherMatrix[1][3]));
+		someMatrix[2][2] = ((someMatrix[2][0] * someOtherMatrix[2][0]) + (someMatrix[2][1] * someOtherMatrix[2][1]) + (someMatrix[2][2] * someOtherMatrix[2][2]) + (someMatrix[2][3] * someOtherMatrix[2][3]));
+		someMatrix[2][3] = ((someMatrix[2][0] * someOtherMatrix[3][0]) + (someMatrix[2][1] * someOtherMatrix[3][1]) + (someMatrix[2][2] * someOtherMatrix[3][2]) + (someMatrix[2][3] * someOtherMatrix[3][3]));
+		someMatrix[3][0] = ((someMatrix[3][0] * someOtherMatrix[0][0]) + (someMatrix[3][1] * someOtherMatrix[0][1]) + (someMatrix[3][2] * someOtherMatrix[0][2]) + (someMatrix[3][3] * someOtherMatrix[0][3]));
+		someMatrix[3][1] = ((someMatrix[3][0] * someOtherMatrix[1][0]) + (someMatrix[3][1] * someOtherMatrix[1][1]) + (someMatrix[3][2] * someOtherMatrix[1][2]) + (someMatrix[3][3] * someOtherMatrix[1][3]));
+		someMatrix[3][2] = ((someMatrix[3][0] * someOtherMatrix[2][0]) + (someMatrix[3][1] * someOtherMatrix[2][1]) + (someMatrix[3][2] * someOtherMatrix[2][2]) + (someMatrix[3][3] * someOtherMatrix[2][3]));
+		someMatrix[3][3] = ((someMatrix[3][0] * someOtherMatrix[3][0]) + (someMatrix[3][1] * someOtherMatrix[3][1]) + (someMatrix[3][2] * someOtherMatrix[3][2]) + (someMatrix[3][3] * someOtherMatrix[3][3]));
+
+		return someMatrix;
+	
 	}
 
 

@@ -1,6 +1,12 @@
 //MyMathLibrary.h
 //By: Jared Ramey || Started: 11/4/14
+//#ifdef _MYMATHLIBRARY_H_
+//#define _MYMATHLIBRARY_H_
+
 #include <string>
+#include <iostream>
+#include <math.h>
+#include <vector>
 
 namespace MyMathLibrary
 {
@@ -41,25 +47,39 @@ namespace MyMathLibrary
 		//Function for Operator Overloading
 
 		//Function for Linear Interpolation
-
+			//Algorythm credit to http://en.wikipedia.org/wiki/Linear_interpolation
+		float LinearInterpolation(float v0, float v1, float t);
 
 	//All functions for 3x3 & 4x4 Matrix's
 		//Function for Orthographic Projection Creation
 
-		//Function for Scale
-		vector<vector<float>> Scale2DVector(float a_xChange, float a_yChange, vector<vector<float>>& someVector);
 
-		//Function for Rotation
-		vector<vector<float>> Rotate2DVector(vector<vector<float>>& someVector, float a_degreeChange);
+		//Function for Scaling a [3]x[3] matrix
+		std::vector<std::vector<float>> Scale3x3Matrix(float a_xChange, float a_yChange, std::vector<std::vector<float>>& someVector);
 
-		//Function for Transform Vector
-		vector<vector<float>> Transform2DVector(vector<vector<float>>& someVector, float a_xChange, float a_yChange);
+		//Function for scaling a [4]x[4] matrix
+		std::vector<std::vector<float>> Scale4x4Matrix(float a_xChange, float a_yChange, float a_zChange, std::vector<std::vector<float>>& someVector);
 
-		//Function for Matrix Multiplication
-		vector<float> My2DMatrixMultiplication(vector<float>& someVector, vector<vector<float>>& someOtherVector);
+		//Function for Rotating a [3]x[3] matrix
+		std::vector<std::vector<float>> Rotate3x3Matrix(std::vector<std::vector<float>>& someVector, float a_degreeChange);
 
-		//function for matrix multiplication between two matricies
-		vector<vector<float>> MyMatrixMultiplication(vector<vector<float>>& someVector, vector<vector<float>>& someOtherVector);
+		//Function for Rotating a [4]x[4] matrix
+		std::vector<std::vector<float>> Rotate4x4Matrix(std::vector<std::vector<float>>& someVector, float a_degreeChange);
+
+		//Function for Transforming a [3]x[3] matrix
+		std::vector<std::vector<float>> Transform3x3Matrix(std::vector<std::vector<float>>& someVector, float a_xChange, float a_yChange);
+
+		//Function for transforming a [4]x[4] matrix
+		std::vector<std::vector<float>> Transform4x4Matrix(std::vector<std::vector<float>>& someVector, float a_xChange, float a_yChange, float a_zChange);
+
+		//Function for Matrix Multiplication in between a vector [3]x[1] and matrix [3]x[3]
+		std::vector<float> My2DMatrixMultiplication(std::vector<float>& someVector, std::vector<std::vector<float>>& someOtherVector);
+
+		//function for matrix multiplication between two [3]x[3] matricies
+		std::vector<std::vector<float>> My3x3MatrixMultiplication(std::vector<std::vector<float>>& someVector, std::vector<std::vector<float>>& someOtherVector);
+
+		//Function for matrix multiplication between two [4]x[4] matricies
+		std::vector<std::vector<float>> My4x4MatrixMultiplication(std::vector<std::vector<float>>& someVector, std::vector<std::vector<float>>& someOtherVector);
 
 	//All functions for Vector 4
 		//Function for Normilization
