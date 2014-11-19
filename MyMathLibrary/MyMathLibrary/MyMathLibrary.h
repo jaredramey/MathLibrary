@@ -37,14 +37,14 @@ namespace MyMathLibrary
 	*/
 		//All functions for 2D & 3D Dimensional Vectors
 		//Function for Dot Product
-		float DotProduct(float a_Ax, float a_Ay, float a_Bx, float a_By);
-		//Function for Normalization
-		float NomralizeVector(std::string a_returnType, float a_x, float a_y, float a_length);
+		
+		
 		//Function for Cross Product
 		float CrossProduct(std::string a_returnType, float a_Ax, float a_Ay, float a_Az, float a_Bx, float a_By, float a_Bz);
 		//Function for Magnitude
 		float Magnitude(float a_A, float a_B);
-		//Function for Operator Overloading
+		//Functions for Operator Overloading
+				//reference the classes below for operator overloading
 
 		//Function for Linear Interpolation
 			//Algorythm credit to http://en.wikipedia.org/wiki/Linear_interpolation
@@ -96,5 +96,73 @@ namespace MyMathLibrary
 
 		//Function for Bitwise Operations
 
+	};
+
+	class My2DVector
+	{
+	public:
+		My2DVector();
+
+		//Constructor to make a 2D vector from scratch for operator Overloading
+		My2DVector(const float &a_X, const float &a_Y);
+
+		~My2DVector();
+
+		float DotProduct(const My2DVector &a_2Dvector);
+
+		//Function for Normalization
+		My2DVector NomralizeVector(const My2DVector &a_2Dvector, float a_length);
+
+		float x;
+		float y;
+
+
+		//Time to declare some operator overloading
+		My2DVector operator + (const My2DVector &a_plus);
+		My2DVector operator += (const My2DVector &a_plusEquals);
+
+		My2DVector operator - (const My2DVector &a_minus);
+		My2DVector operator -= (const My2DVector &a_minusEquals);
+
+		My2DVector operator * (const My2DVector &a_times);
+		My2DVector operator *= (const My2DVector &a_timesEquals);
+
+		My2DVector operator / (const My2DVector &a_devided);
+		My2DVector operator /= (const My2DVector &a_devidedEquals);
+
+		My2DVector operator = (const My2DVector &a_equals);
+		bool operator == (const My2DVector &a_equalsEquals);
+	};
+
+	class My3DVector
+	{
+	public:
+		My3DVector();
+
+		//Constructor to make a 2D vector from scratch for operator Overloading
+		My3DVector(const float &a_X, const float &a_Y, const float &a_Z);
+
+		~My3DVector();
+
+		float x;
+		float y;
+		float z;
+
+
+		//Time to declare some operator overloading
+		My3DVector operator + (const My3DVector &a_plus);
+		My3DVector operator += (const My3DVector &a_plusEquals);
+
+		My3DVector operator - (const My3DVector &a_minus);
+		My3DVector operator -= (const My3DVector &a_minusEquals);
+
+		My3DVector operator * (const My3DVector &a_times);
+		My3DVector operator *= (const My3DVector &a_timesEquals);
+
+		My3DVector operator / (const My3DVector &a_devided);
+		My3DVector operator /= (const My3DVector &a_devidedEquals);
+
+		My3DVector operator = (const My3DVector &a_equals);
+		bool operator == (const My3DVector &a_equalsEquals);
 	};
 }

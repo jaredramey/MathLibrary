@@ -9,50 +9,9 @@ namespace MyMathLibrary
 	//All functions for 2D & 3D Dimensional Vectors
 	//Function for Dot Product
 		//a_Ax & a_Ay = point 1 {x, y} || a_Bx & a_By = point 2 {x, y}
-	float MyMathFunctions::DotProduct(float a_Ax, float a_Ay, float a_Bx, float a_By)
-	{
-		float result = 0;
-		result += ((a_Ax*a_Bx) + (a_Ay*a_By));
-		if (result != 0)
-		{
-			return result;
-		}
+	
 
-		else
-		{
-			cout << "ERROR 002" << endl;
-			cout << "THE FUNCTION HAS ENCOUNTERED AN UNKOWN ISSUE" << endl;
-			system("pause");
-			return result;
-		}
-	}
-
-	//Function for Normalization
-	float MyMathFunctions::NomralizeVector(string a_returnType, float a_x, float a_y, float a_length)
-	{
-		float resultX = 0;
-		float resultY = 0;
-
-		if (a_returnType == "x" || a_returnType == "X")
-		{
-			resultX += (a_x/a_length);
-			return resultX;
-		}
-
-		else if (a_returnType == "y" || a_returnType == "Y")
-		{
-			resultY += (a_y/a_length);
-			return resultY;
-		}
-
-		else
-		{
-			cout << "ERROR 004: " << endl;
-			cout << "RETURN TYPE NOT RECOGNIZED" << endl;
-			system("pause");
-			return 0;
-		}
-	}
+	
 
 	//Function for Cross Product
 		//a_Ax, a_Ay & a_Az = point 1 {x, y, z} || a_Bx, a_By, a_Bz = point 2 {x, y, z}
@@ -111,7 +70,7 @@ namespace MyMathLibrary
 	}
 
 	//Function for Operator Overloading
-
+		//Refer to each class for it's operator overloads
 
 	//Function for Linear Interpolation
 		//Algorythm credit to http://en.wikipedia.org/wiki/Linear_interpolation
