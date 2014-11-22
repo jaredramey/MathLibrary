@@ -49,31 +49,13 @@ namespace MyMathLibrary
 		
 	}
 
-	//Function for Magnitude
-	float MyMathFunctions::Magnitude(float a_A, float a_B)
-	{
-		float c = 0;
-		c += (sqrt((a_A*a_A)+(a_B*a_B)));
 
-		if (c != 0)
-		{
-			return c;
-		}
-
-		else
-		{
-			cout << "ERROR 005: " << endl;
-			cout << "CALCULATION HAS RETURNED NULL" << endl;
-			system("pause");
-			return 0;
-		}
-	}
 
 	//Function for Operator Overloading
 		//Refer to each class for it's operator overloads
 
 	//Function for Linear Interpolation
-		//Algorythm credit to http://en.wikipedia.org/wiki/Linear_interpolation
+		//Algorithm credit to http://en.wikipedia.org/wiki/Linear_interpolation
 	float MyMathFunctions::LinearInterpolation(float v0, float v1, float t)
 	{
 		return (1-t)*v0 + t*v1;

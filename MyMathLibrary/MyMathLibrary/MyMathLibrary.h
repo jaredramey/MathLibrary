@@ -42,12 +42,12 @@ namespace MyMathLibrary
 		//Function for Cross Product
 		float CrossProduct(std::string a_returnType, float a_Ax, float a_Ay, float a_Az, float a_Bx, float a_By, float a_Bz);
 		//Function for Magnitude
-		float Magnitude(float a_A, float a_B);
+		
 		//Functions for Operator Overloading
 				//reference the classes below for operator overloading
 
 		//Function for Linear Interpolation
-			//Algorythm credit to http://en.wikipedia.org/wiki/Linear_interpolation
+			//Algorithm credit to http://en.wikipedia.org/wiki/Linear_interpolation
 		float LinearInterpolation(float v0, float v1, float t);
 
 	//All functions for 3x3 & 4x4 Matrix's
@@ -82,7 +82,7 @@ namespace MyMathLibrary
 		std::vector<std::vector<float>> My4x4MatrixMultiplication(std::vector<std::vector<float>>& someVector, std::vector<std::vector<float>>& someOtherVector);
 
 	//All functions for Vector 4
-		//Function for Normilization
+		//Function for Normalization
 
 		//Function for Construction from Hexadecimal Color Value
 
@@ -112,7 +112,9 @@ namespace MyMathLibrary
 
 		//Function for Normalization
 		My2DVector NomralizeVector(const My2DVector &a_2Dvector, float a_length);
-
+		
+		float Magnitude(float a_A, float a_B);
+		
 		float x;
 		float y;
 
@@ -139,7 +141,7 @@ namespace MyMathLibrary
 	public:
 		My3DVector();
 
-		//Constructor to make a 2D vector from scratch for operator Overloading
+		//Constructor to make a 3D vector from scratch for operator Overloading
 		My3DVector(const float &a_X, const float &a_Y, const float &a_Z);
 
 		~My3DVector();

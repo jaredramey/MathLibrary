@@ -20,7 +20,17 @@ namespace MyMathLibrary
 	{
 		
 	}
+	
+		//Function for Magnitude
+	float My2DVector::Magnitude(float a_A, float a_B)
+	{
+		float c = 0;
+		c += (sqrt((a_A*a_A)+(a_B*a_B)));
 
+			return c;
+
+	}
+	
 	float My2DVector::DotProduct(const My2DVector &a_2DVector)
 	{
 		float result = 0;
