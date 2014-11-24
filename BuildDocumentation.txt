@@ -21,7 +21,105 @@
 										};
 
 
+||==================================================================================================================================================||
+||/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/-------------------NEW ERROR LIST------------------/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=||
+||==================================================================================================================================================||
 
+					||================================||
+					||-------Note on Error List-------||
+					||================================||
+			This library has a special error code type system, this system works as such:
+				the error code is a 4 didget number {Ex: 2022}
+
+				[2]022 - the first number represents which class its in     ---      (A list of the classes can be found on the Wiki)
+				2[02]2 - the second and third number represents which function it is (This list can also be found on the Wiki)
+				202[2] - the last number represents which part of the function has encountered the error 
+						(explinations for each error can be found below or on the wiki page)
+
+
+Error List:
+
+	All 1000 type errors:
+
+
+	All 2000 type errors:
+		ERROR 2011:
+		Calculation Error has occured in Magnitude(const My2DVector)->sqrt = This error means that the calculation for finding the
+											square root returned a value that was not expected. So
+											the calculation for finding magnitude could not continue.
+
+		ERROR 2021:
+		Calculation Error has occured in DotProduct(const My2DVector &a_2DVector)  = This error means that somehow the simple calculation 
+											     ((x*x2)+(y*y2)) didn't work. No idea why it wouldn't so far.
+												      
+
+
+		ERROR 2031:
+		Calculation Error has occured in NormalizeVector(const My2DVector)->Normalize X = This error means that the calculation for finding the
+												  Magnitude returned a value that was not expected. So
+												  the calculation for normalizing X could not continue.
+		
+		ERROR 2032:
+		Calculation Error has occured in NormalizeVector(const My2DVector)->Normalize Y = This error means that the calculation for finding the
+												  Magnitude returned a value that was not expected.
+												  the calculation for normalizing Y could not continue.
+
+		ERROR 2021:
+		Calculation Error has occured in CrossProduct(const My2DVector &a_2DVector)  = This error means that somehow the simple calculation 
+											     ((x*x2)-(y*y2)) didn't work. No idea why it wouldn't so far.
+
+	
+	All 3000 type errors:
+		ERROR 3011:
+		Calculation Error has occured in Magnitude(const My3DVector)->sqrt = This error means that the calculation for finding the
+											square root returned a value that was not expected. So
+											the calculation for finding magnitude could not continue.
+
+		ERROR 3021:
+		Calculation Error has occured in DotProduct(const My3DVector &a_3DVector)  = This error means that somehow the simple calculation 
+											     ((x*x2)+(y*y2)+(z*z2)) didn't work. No idea why it wouldn't so far.
+												      
+
+
+		ERROR 3031:
+		Calculation Error has occured in NormalizeVector(const My3DVector)->Normalize X = This error means that the calculation for finding the
+												  Magnitude returned a value that was not expected. So
+												  the calculation for normalizing X could not continue.
+		
+		ERROR 3032:
+		Calculation Error has occured in NormalizeVector(const My3DVector)->Normalize Y = This error means that the calculation for finding the
+												  Magnitude returned a value that was not expected.
+												  the calculation for normalizing Y could not continue.
+
+		ERROR 3033:
+		Calculation Error has occured in NormalizeVector(const My3DVector)->Normalize Z = This error means that the calculation for finding the
+												  Magnitude returned a value that was not expected.
+												  the calculation for normalizing Z could not continue.
+
+
+		ERROR 3021:
+		Calculation Error has occured in CrossProduct(const My3DVector &a_3DVector)  = This error means that somehow the simple calculation 
+											     ((x*x2)-(y*y2)-(z*z2)) didn't work. No idea why it wouldn't so far.
+
+
+	All 4000 type errors:
+
+
+||==================================================================================================================================================||
+||/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/---------------END NEW ERROR LIST------------------/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=||
+||==================================================================================================================================================||
+
+
+
+
+
+
+
+
+
+||==================================================================================================================================================||
+||/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/-------------------OLD ERROR LIST------------------/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=||
+||==================================================================================================================================================||
 Error List:
 	Error 001:                     
 	Conversion type not recognized = This error is related to the function DegreeRadianConversion. During the function call there is only 2 conversions
@@ -57,3 +155,7 @@ Error List:
 	CALCULATION HAS RETURNED NULL = This error is related to the Magnitude function. After the call something happened within the calculation that returned
 					the result as 0 (NULL). If this error has been declared then either the math was wrong or strange inputs were detected.
 					Contact the Developer so that this issue can be resolved.
+
+||==================================================================================================================================================||
+||/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/---------------END OLD ERROR LIST------------------/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=/=||
+||==================================================================================================================================================||

@@ -6,54 +6,6 @@ using namespace std;
 
 namespace MyMathLibrary
 {
-	//All functions for 2D & 3D Dimensional Vectors
-	//Function for Dot Product
-		//a_Ax & a_Ay = point 1 {x, y} || a_Bx & a_By = point 2 {x, y}
-	
-
-	
-
-	//Function for Cross Product
-		//a_Ax, a_Ay & a_Az = point 1 {x, y, z} || a_Bx, a_By, a_Bz = point 2 {x, y, z}
-	float MyMathFunctions::CrossProduct(string a_returnType, float a_Ax, float a_Ay, float a_Az, float a_Bx, float a_By, float a_Bz)
-	{
-		float resultX = 0;
-		float resultY = 0;
-		float resultZ = 0;
-
-		if (a_returnType == "x" || a_returnType == "X")
-		{
-			resultX += (((a_Ay*a_Bz) - (a_Az*a_By)));
-			return resultX;
-		}
-		
-		else if (a_returnType == "y" || a_returnType == "Y")
-		{
-			resultY += (((a_Az*a_Bx) - (a_Ax*a_Bz)));
-			return resultY;
-		}
-
-		else if (a_returnType == "z" || a_returnType == "Z")
-		{
-			resultZ += (((a_Ax*a_By) - (a_Ay*a_Bx)));
-			return resultZ;
-		}
-		
-		else
-		{
-			cout << "ERROR 003: " << endl;
-			cout << "RETURN TYPE NOT RECOGNIZED" << endl;
-			system("pause");
-			return 0;
-		}
-		
-	}
-
-
-
-	//Function for Operator Overloading
-		//Refer to each class for it's operator overloads
-
 	//Function for Linear Interpolation
 		//Algorithm credit to http://en.wikipedia.org/wiki/Linear_interpolation
 	float MyMathFunctions::LinearInterpolation(float v0, float v1, float t)

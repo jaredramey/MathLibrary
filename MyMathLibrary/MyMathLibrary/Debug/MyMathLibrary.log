@@ -1,5 +1,16 @@
-﻿Build started 11/19/2014 11:01:11 AM.
+﻿Build started 11/24/2014 2:54:48 PM.
+     1>Project "C:\Users\jared.ramey\Documents\GitHub\MathLibrary\MyMathLibrary\MyMathLibrary\MyMathLibrary.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt My3DVector.cpp
+         My3DVector.cpp
+     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\my3dvector.cpp(37): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+       Lib:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\jared.ramey\Documents\GitHub\MathLibrary\MyMathLibrary\Debug\MyMathLibrary.lib" /NOLOGO Debug\My2DVector.obj
+         Debug\My3DVector.obj
+         Debug\MyMathLibrary.obj
+         MyMathLibrary.vcxproj -> C:\Users\jared.ramey\Documents\GitHub\MathLibrary\MyMathLibrary\Debug\MyMathLibrary.lib
+     1>Done Building Project "C:\Users\jared.ramey\Documents\GitHub\MathLibrary\MyMathLibrary\MyMathLibrary\MyMathLibrary.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.02
+Time Elapsed 00:00:00.95

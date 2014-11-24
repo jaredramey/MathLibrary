@@ -35,17 +35,6 @@ namespace MyMathLibrary
 	jefjohms@gmail.com
 	jeffrey.johnson@students.aie.edu.au
 	*/
-		//All functions for 2D & 3D Dimensional Vectors
-		//Function for Dot Product
-		
-		
-		//Function for Cross Product
-		float CrossProduct(std::string a_returnType, float a_Ax, float a_Ay, float a_Az, float a_Bx, float a_By, float a_Bz);
-		//Function for Magnitude
-		
-		//Functions for Operator Overloading
-				//reference the classes below for operator overloading
-
 		//Function for Linear Interpolation
 			//Algorithm credit to http://en.wikipedia.org/wiki/Linear_interpolation
 		float LinearInterpolation(float v0, float v1, float t);
@@ -103,17 +92,23 @@ namespace MyMathLibrary
 	public:
 		My2DVector();
 
-		//Constructor to make a 2D vector from scratch for operator Overloading
+		//Constructor to make a 2D vector from scratch or from a vector<(float||int)>
 		My2DVector(const float &a_X, const float &a_Y);
 
 		~My2DVector();
 
+		//take in a 2d vector and return it's magnitude
+		float Magnitude(const My2DVector);
+
 		float DotProduct(const My2DVector &a_2Dvector);
 
 		//Function for Normalization
-		My2DVector NomralizeVector(const My2DVector &a_2Dvector, float a_length);
+		My2DVector NomralizeVector(const My2DVector);
+
+		//Function for Cross Product
+		float CrossProduct(const My2DVector &a_2Dvector);
 		
-		float Magnitude(float a_A, float a_B);
+
 		
 		float x;
 		float y;
@@ -145,6 +140,17 @@ namespace MyMathLibrary
 		My3DVector(const float &a_X, const float &a_Y, const float &a_Z);
 
 		~My3DVector();
+
+		//take in a 2d vector and return it's magnitude
+		float Magnitude(const My3DVector);
+
+		float DotProduct(const My3DVector &a_3Dvector);
+
+		//Function for Normalization
+		My3DVector NomralizeVector(const My3DVector);
+
+		//Function for Cross Product
+		My3DVector CrossProduct(const My3DVector &a_3DVector);
 
 		float x;
 		float y;
