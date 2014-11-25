@@ -32,5 +32,8 @@
     <ClCompile Include="My3DVector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="My4DVector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

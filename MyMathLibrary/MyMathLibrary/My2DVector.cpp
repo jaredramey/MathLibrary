@@ -223,6 +223,15 @@ namespace MyMathLibrary
 
 	}
 
+	//linear Interpolation
+	float My2DVector::Lerp(const My2DVector &a_2DVector, float a_percentage)
+	{
+		My2DVector temp = (*this);
+
+		//Need to figure out the proper equation for this
+		return (((a_2DVector.x-temp.x) + (a_2DVector.y-temp.y))/a_percentage);
+	}
+
 
 
 	//Time to do some operator overloading

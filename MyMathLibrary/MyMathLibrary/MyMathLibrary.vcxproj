@@ -81,6 +81,7 @@
   <ItemGroup>
     <ClCompile Include="My2DVector.cpp" />
     <ClCompile Include="My3DVector.cpp" />
+    <ClCompile Include="My4DVector.cpp" />
     <ClCompile Include="MyMathLibrary.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

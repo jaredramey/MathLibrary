@@ -50,10 +50,18 @@ namespace MyMathLibrary
 		std::vector<std::vector<float>> Scale4x4Matrix(float a_xChange, float a_yChange, float a_zChange, std::vector<std::vector<float>>& someVector);
 
 		//Function for Rotating a [3]x[3] matrix
-		std::vector<std::vector<float>> Rotate3x3Matrix(std::vector<std::vector<float>>& someVector, float a_degreeChange);
+		std::vector<std::vector<float>> Rotate3x3MatrixZ(std::vector<std::vector<float>>& someVector, float a_degreeChange);
+
+		std::vector<std::vector<float>> Rotate3x3MatrixY(std::vector<std::vector<float>>& someVector, float a_degreeChange);
+
+		std::vector<std::vector<float>> Rotate3x3MatrixX(std::vector<std::vector<float>>& someVector, float a_degreeChange);
 
 		//Function for Rotating a [4]x[4] matrix
-		std::vector<std::vector<float>> Rotate4x4Matrix(std::vector<std::vector<float>>& someVector, float a_degreeChange);
+		std::vector<std::vector<float>> Rotate4x4MatrixZ(std::vector<std::vector<float>>& someVector, float a_degreeChange);
+
+		std::vector<std::vector<float>> Rotate4x4MatrixY(std::vector<std::vector<float>>& someVector, float a_degreeChange);
+
+		std::vector<std::vector<float>> Rotate4x4MatrixX(std::vector<std::vector<float>>& someVector, float a_degreeChange);
 
 		//Function for Transforming a [3]x[3] matrix
 		std::vector<std::vector<float>> Transform3x3Matrix(std::vector<std::vector<float>>& someVector, float a_xChange, float a_yChange);
@@ -69,11 +77,6 @@ namespace MyMathLibrary
 
 		//Function for matrix multiplication between two [4]x[4] matricies
 		std::vector<std::vector<float>> My4x4MatrixMultiplication(std::vector<std::vector<float>>& someVector, std::vector<std::vector<float>>& someOtherVector);
-
-	//All functions for Vector 4
-		//Function for Normalization
-
-		//Function for Construction from Hexadecimal Color Value
 
 
 	//All functions for common math Functionality
@@ -107,7 +110,9 @@ namespace MyMathLibrary
 
 		//Function for Cross Product
 		float CrossProduct(const My2DVector &a_2Dvector);
-		
+
+		//function for Linear Interloping
+		float Lerp(const My2DVector &a_2DVector, float percentage);
 
 		
 		float x;
@@ -172,5 +177,31 @@ namespace MyMathLibrary
 
 		My3DVector operator = (const My3DVector &a_equals);
 		bool operator == (const My3DVector &a_equalsEquals);
+	};
+
+	class My4DVector
+	{
+	public:
+
+		My4DVector();
+
+		My4DVector(float x, float y, float z, float w);
+
+		~My4DVector();
+
+		float x;
+		float y;
+		float z;
+		float w;
+
+		//Function for Construction from Hexadecimal Color Value
+		//Credit for this style of construction from a hex value to Jeffrey M. Johnson
+		//https://github.com/JeffreyMJohnson
+		My4DVector ConstructFromHex(const unsigned int a_hex);
+
+		//Function for Normalization
+		My4DVector Normalize4D(const My4DVector);
+
+
 	};
 }
