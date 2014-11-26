@@ -37,14 +37,6 @@ namespace MyMathLibrary
 	}
 
 
-
-	//Function for Linear Interpolation
-		//Algorithm credit to http://en.wikipedia.org/wiki/Linear_interpolation
-	float MyMatrix4x4::LinearInterpolation(float v0, float v1, float t)
-	{
-		return (1-t)*v0 + t*v1;
-	}
-
 	//All functions for 3x3 & 4x4 Matrix's
 	//Function for Orthographic Projection Creation
 	MyMatrix4x4 MyMatrix4x4::OrthographicProj(float a_left, float a_right, float a_top, float a_bottom, float a_near, float a_far, MyMatrix4x4& someMatrix)

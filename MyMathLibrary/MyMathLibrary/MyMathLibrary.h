@@ -14,15 +14,16 @@ namespace MyMathLibrary
 	{
 	public:
 		//All functions for common math Functionality
-		//Function for Linear Interpolation for Scalar Values
+
+		//Function for Linear Interpolation
+		//Algorithm credit to http://en.wikipedia.org/wiki/Linear_interpolation
+		float LinearInterpolation(float v0, float v1, float t);
 
 		//Function for Conversion Between degrees and Radians
 		int DegreeRadianConversion(int a_type, float a_numToConvert);
+
 		//Function for Testing Scalar Value for Power of Two
-
-		//Function for Bitwise Operations
-
-
+		bool IsPowerOfTwo(unsigned int num);
 	};
 
 	class MyMatrix3x3
@@ -119,9 +120,6 @@ namespace MyMathLibrary
 	jefjohms@gmail.com
 	jeffrey.johnson@students.aie.edu.au
 	*/
-		//Function for Linear Interpolation
-			//Algorithm credit to http://en.wikipedia.org/wiki/Linear_interpolation
-		float LinearInterpolation(float v0, float v1, float t);
 
 	//All functions for 3x3 & 4x4 Matrix's
 		//Function for Orthographic Projection Creation

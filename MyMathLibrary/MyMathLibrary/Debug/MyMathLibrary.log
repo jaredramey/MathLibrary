@@ -1,23 +1,18 @@
-﻿Build started 11/26/2014 10:23:37 AM.
+﻿Build started 11/26/2014 11:32:07 AM.
      1>Project "C:\Users\jared.ramey\Documents\GitHub\MathLibrary\MyMathLibrary\MyMathLibrary\MyMathLibrary.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt My2DVector.cpp My3DVector.cpp My4DVector.cpp MyBasicMath.cpp MyMatrix3x3.cpp MyMatrix4x4.cpp
          MyMatrix4x4.cpp
-         MyMatrix3x3.cpp
          MyBasicMath.cpp
-     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mybasicmath.cpp(20): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mybasicmath.cpp(26): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
-         My4DVector.cpp
-     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\my4dvector.cpp(34): warning C4244: '=' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\my4dvector.cpp(36): warning C4244: '=' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\my4dvector.cpp(38): warning C4244: '=' : conversion from 'unsigned int' to 'float', possible loss of data
-     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\my4dvector.cpp(40): warning C4244: '=' : conversion from 'unsigned int' to 'float', possible loss of data
-         My3DVector.cpp
-     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\my3dvector.cpp(37): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-         My2DVector.cpp
-     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\my2dvector.cpp(40): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mybasicmath.cpp(25): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mybasicmath.cpp(31): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
          Generating Code...
-     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mybasicmath.cpp(29): warning C4715: 'MyMathLibrary::MyBasicMath::DegreeRadianConversion' : not all control paths return a value
+     1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mybasicmath.cpp(34): warning C4715: 'MyMathLibrary::MyBasicMath::DegreeRadianConversion' : not all control paths return a value
+         Skipping... (no relevant changes detected)
+         MyMatrix3x3.cpp
+         My4DVector.cpp
+         My3DVector.cpp
+         My2DVector.cpp
        Lib:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\Lib.exe /OUT:"C:\Users\jared.ramey\Documents\GitHub\MathLibrary\MyMathLibrary\Debug\MyMathLibrary.lib" /NOLOGO Debug\My2DVector.obj
          Debug\My3DVector.obj
@@ -30,4 +25,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.43
+Time Elapsed 00:00:01.28
