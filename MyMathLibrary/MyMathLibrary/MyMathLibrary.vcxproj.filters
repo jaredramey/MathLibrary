@@ -23,9 +23,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="MyMathLibrary.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="My2DVector.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -33,6 +30,15 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="My4DVector.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyMatrix4x4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyMatrix3x3.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MyBasicMath.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

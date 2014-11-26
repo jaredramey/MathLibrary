@@ -10,9 +10,93 @@
 
 namespace MyMathLibrary
 {
-	class MyMathFunctions
+	class MyBasicMath
 	{
 	public:
+		//All functions for common math Functionality
+		//Function for Linear Interpolation for Scalar Values
+
+		//Function for Conversion Between degrees and Radians
+		int DegreeRadianConversion(int a_type, float a_numToConvert);
+		//Function for Testing Scalar Value for Power of Two
+
+		//Function for Bitwise Operations
+
+
+	};
+
+	class MyMatrix3x3
+	{
+	public:
+		MyMatrix3x3();
+
+		//take in a multidimensional array in order to create a new 4x4 matrix
+		MyMatrix3x3(std::vector<std::vector<float>>& a_matrix);
+
+		~MyMatrix3x3();
+
+
+		float zeroZero;
+		float zeroOne;
+		float zeroTwo;
+		float oneZero;
+		float oneOne;
+		float oneTwo;
+		float twoZero;
+		float twoOne;
+		float twoTwo;
+
+
+		//Function for Scaling a [3]x[3] matrix
+		MyMatrix3x3 Scale3x3Matrix(float a_xChange, float a_yChange, MyMatrix3x3& someVector);
+
+		//Function for Rotating a [3]x[3] matrix
+		MyMatrix3x3 Rotate3x3MatrixZ(MyMatrix3x3& someVector, float a_degreeChange);
+
+		MyMatrix3x3 Rotate3x3MatrixY(MyMatrix3x3& someVector, float a_degreeChange);
+
+		MyMatrix3x3 Rotate3x3MatrixX(MyMatrix3x3& someVector, float a_degreeChange);
+
+		//Function for Transforming a [3]x[3] matrix
+		MyMatrix3x3 Transform3x3Matrix(MyMatrix3x3& someVector, float a_xChange, float a_yChange);
+
+		//function for matrix multiplication between two [3]x[3] matricies
+		MyMatrix3x3 My3x3MatrixMultiplication(MyMatrix3x3& someVector, MyMatrix3x3& someOtherVector);
+
+		//Function for Matrix Multiplication in between a vector [3]x[1] and matrix [3]x[3]
+		std::vector<float> My2DMatrixMultiplication(std::vector<float>& someVector, MyMatrix3x3& someMatrix);
+	};
+
+	class MyMatrix4x4
+	{
+	public:
+		MyMatrix4x4();
+
+		//take in a multidimensional array in order to create a new 4x4 matrix
+		MyMatrix4x4(std::vector<std::vector<float>>& a_matrix);
+
+		~MyMatrix4x4();
+
+
+		float zeroZero;
+		float zeroOne;
+		float zeroTwo;
+		float zeroThree;
+		float oneZero;
+		float oneOne;
+		float oneTwo;
+		float oneThree;
+		float twoZero;
+		float twoOne;
+		float twoTwo;
+		float twoThree;
+		float threeZero;
+		float threeOne;
+		float threeTwo;
+		float threeThree;
+
+
+
 	/*but you're not using any Vectors here. you can have a DotProduct function by itself (I would make it a static function
 	so you don't instantiate a Math library object to use it however) but normrmally it would be a function of a Vector class
 	that you would call with another Vector to have the dot product returned.
@@ -41,52 +125,27 @@ namespace MyMathLibrary
 
 	//All functions for 3x3 & 4x4 Matrix's
 		//Function for Orthographic Projection Creation
-		std::vector<std::vector<float>> OrthographicProj(float a_left, float a_right, float a_top, float a_bottom, float a_near, float a_far, std::vector<std::vector<float>>& someVector);
-
-		//Function for Scaling a [3]x[3] matrix
-		std::vector<std::vector<float>> Scale3x3Matrix(float a_xChange, float a_yChange, std::vector<std::vector<float>>& someVector);
+		MyMatrix4x4 OrthographicProj(float a_left, float a_right, float a_top, float a_bottom, float a_near, float a_far, MyMatrix4x4& someVector);
 
 		//Function for scaling a [4]x[4] matrix
-		std::vector<std::vector<float>> Scale4x4Matrix(float a_xChange, float a_yChange, float a_zChange, std::vector<std::vector<float>>& someVector);
+		MyMatrix4x4 Scale4x4Matrix(float a_xChange, float a_yChange, float a_zChange, MyMatrix4x4& someVector);
 
-		//Function for Rotating a [3]x[3] matrix
-		std::vector<std::vector<float>> Rotate3x3MatrixZ(std::vector<std::vector<float>>& someVector, float a_degreeChange);
-
-		std::vector<std::vector<float>> Rotate3x3MatrixY(std::vector<std::vector<float>>& someVector, float a_degreeChange);
-
-		std::vector<std::vector<float>> Rotate3x3MatrixX(std::vector<std::vector<float>>& someVector, float a_degreeChange);
-
+		
 		//Function for Rotating a [4]x[4] matrix
-		std::vector<std::vector<float>> Rotate4x4MatrixZ(std::vector<std::vector<float>>& someVector, float a_degreeChange);
+		MyMatrix4x4 Rotate4x4MatrixZ(MyMatrix4x4& someVector, float a_degreeChange);
 
-		std::vector<std::vector<float>> Rotate4x4MatrixY(std::vector<std::vector<float>>& someVector, float a_degreeChange);
+		MyMatrix4x4 Rotate4x4MatrixY(MyMatrix4x4& someVector, float a_degreeChange);
 
-		std::vector<std::vector<float>> Rotate4x4MatrixX(std::vector<std::vector<float>>& someVector, float a_degreeChange);
+		MyMatrix4x4 Rotate4x4MatrixX(MyMatrix4x4& someVector, float a_degreeChange);
 
-		//Function for Transforming a [3]x[3] matrix
-		std::vector<std::vector<float>> Transform3x3Matrix(std::vector<std::vector<float>>& someVector, float a_xChange, float a_yChange);
+		
 
 		//Function for transforming a [4]x[4] matrix
-		std::vector<std::vector<float>> Transform4x4Matrix(std::vector<std::vector<float>>& someVector, float a_xChange, float a_yChange, float a_zChange);
-
-		//Function for Matrix Multiplication in between a vector [3]x[1] and matrix [3]x[3]
-		std::vector<float> My2DMatrixMultiplication(std::vector<float>& someVector, std::vector<std::vector<float>>& someOtherVector);
-
-		//function for matrix multiplication between two [3]x[3] matricies
-		std::vector<std::vector<float>> My3x3MatrixMultiplication(std::vector<std::vector<float>>& someVector, std::vector<std::vector<float>>& someOtherVector);
+		MyMatrix4x4 Transform4x4Matrix(MyMatrix4x4& someVector, float a_xChange, float a_yChange, float a_zChange);
+		
 
 		//Function for matrix multiplication between two [4]x[4] matricies
-		std::vector<std::vector<float>> My4x4MatrixMultiplication(std::vector<std::vector<float>>& someVector, std::vector<std::vector<float>>& someOtherVector);
-
-
-	//All functions for common math Functionality
-		//Function for Linear Interpolation for Scalar Values
-
-		//Function for Conversion Between degrees and Radians
-		int DegreeRadianConversion(int a_type, float a_numToConvert);
-		//Function for Testing Scalar Value for Power of Two
-
-		//Function for Bitwise Operations
+		MyMatrix4x4 My4x4MatrixMultiplication(MyMatrix4x4& someVector, MyMatrix4x4& someOtherVector);
 
 	};
 

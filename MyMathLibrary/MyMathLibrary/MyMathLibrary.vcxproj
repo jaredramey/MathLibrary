@@ -82,7 +82,9 @@
     <ClCompile Include="My2DVector.cpp" />
     <ClCompile Include="My3DVector.cpp" />
     <ClCompile Include="My4DVector.cpp" />
-    <ClCompile Include="MyMathLibrary.cpp" />
+    <ClCompile Include="MyBasicMath.cpp" />
+    <ClCompile Include="MyMatrix3x3.cpp" />
+    <ClCompile Include="MyMatrix4x4.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
