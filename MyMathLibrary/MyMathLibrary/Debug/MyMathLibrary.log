@@ -1,14 +1,14 @@
-﻿Build started 11/26/2014 11:32:07 AM.
+﻿Build started 12/1/2014 9:05:35 AM.
      1>Project "C:\Users\jared.ramey\Documents\GitHub\MathLibrary\MyMathLibrary\MyMathLibrary\MyMathLibrary.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt My2DVector.cpp My3DVector.cpp My4DVector.cpp MyBasicMath.cpp MyMatrix3x3.cpp MyMatrix4x4.cpp
-         MyMatrix4x4.cpp
          MyBasicMath.cpp
      1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mybasicmath.cpp(25): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
      1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mybasicmath.cpp(31): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
          Generating Code...
      1>c:\users\jared.ramey\documents\github\mathlibrary\mymathlibrary\mymathlibrary\mybasicmath.cpp(34): warning C4715: 'MyMathLibrary::MyBasicMath::DegreeRadianConversion' : not all control paths return a value
          Skipping... (no relevant changes detected)
+         MyMatrix4x4.cpp
          MyMatrix3x3.cpp
          My4DVector.cpp
          My3DVector.cpp
@@ -25,4 +25,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.28
+Time Elapsed 00:00:02.20
