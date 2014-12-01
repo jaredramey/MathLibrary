@@ -1,6 +1,8 @@
-﻿Build started 12/1/2014 11:28:37 AM.
+﻿Build started 12/1/2014 2:30:20 PM.
      1>Project "C:\Users\jared.ramey\Documents\GitHub\MathLibrary\UnitTest\UnitTestingTake2\UnitTestingTake2\UnitTestingTake2.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\jared.ramey\Documents\GitHub\MathLibrary\MyMathLibrary\MyMathLibrary /I"C:\Users\jared.ramey\Documents\GitHub\MathLibrary\GoogleTest\gtest-1.7.0\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Debug\UnitTestingTake2.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
          C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IC:\Users\jared.ramey\Documents\GitHub\MathLibrary\MyMathLibrary\MyMathLibrary /I"C:\Users\jared.ramey\Documents\GitHub\MathLibrary\GoogleTest\gtest-1.7.0\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\UnitTestingTake2.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt UnitTestingTake2.cpp
          UnitTestingTake2.cpp
        Link:
@@ -11,4 +13,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.03
+Time Elapsed 00:00:01.17
