@@ -29,6 +29,11 @@ TEST(Vector2_test, Magnitude)
 	EXPECT_FLOAT_EQ(Vector2D.Magnitude(NewVector2), 2.23);
 }
 
+TEST
+{
+	
+}
+
 int main(int argc, char** argv)
 {
 	MyMathLibrary::My2DVector NewVector2 = MyMathLibrary::My2DVector::My2DVector(2, 1);
