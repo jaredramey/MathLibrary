@@ -167,9 +167,23 @@ namespace MyMathLibrary
 	}
 
 	//function for matrix multiplication between two [3]x[3] matricies
-	MyMatrix3x3 MyMatrix3x3::My3x3MatrixMultiplication(MyMatrix3x3& someMatrix, MyMatrix3x3& someOtherMatrix)
+	MyMatrix3x3 MyMatrix3x3::My3x3MatrixMultiplication(MyMatrix3x3 someMatrix, MyMatrix3x3 someOtherMatrix)
 	{
-		someMatrix.zeroZero = ((someMatrix.zeroZero * someOtherMatrix.zeroZero) + (someMatrix.zeroOne * someOtherMatrix.zeroOne) + (someMatrix.zeroTwo * someOtherMatrix.zeroTwo));
+		//New Multiplication																																			/*First Row*/
+		zeroZero = ((someMatrix.zeroZero*someOtherMatrix.zeroZero) + (someMatrix.zeroOne*someOtherMatrix.oneZero) + (someMatrix.zeroTwo*someOtherMatrix.twoZero));	//	{x, x, x}
+		zeroOne = ((someMatrix.zeroZero*someOtherMatrix.oneZero) + (someMatrix.zeroOne*someOtherMatrix.oneOne) + (someMatrix.zeroTwo*someOtherMatrix.twoOne));		//	{O, O, O}
+		zeroTwo = ((someMatrix.zeroZero*someOtherMatrix.twoZero) + (someMatrix.zeroOne*someOtherMatrix.oneTwo) + (someMatrix.zeroTwo*someOtherMatrix.twoTwo));		//	{O, O, O}
+																																											/*Second Row*/
+		oneZero = ((someMatrix.oneZero*someOtherMatrix.zeroZero) + (someMatrix.oneOne*someOtherMatrix.zeroOne) + (someMatrix.oneTwo*someOtherMatrix.zeroTwo));		//		{O, O, O}
+		oneOne = ((someMatrix.oneZero*someOtherMatrix.oneZero) + (someMatrix.oneOne*someOtherMatrix.oneOne) + (someMatrix.oneTwo*someOtherMatrix.oneTwo));			//		{x, x, x}
+		oneTwo = ((someMatrix.oneZero*someOtherMatrix.twoZero) + (someMatrix.oneOne*someMatrix.twoOne) + (someMatrix.oneTwo*someOtherMatrix.twoTwo));				//		{O, O, O}
+																																												/*Third Row*/
+		twoZero = ((someMatrix.twoZero*someOtherMatrix.zeroZero) + (someMatrix.twoOne*someOtherMatrix.zeroOne) + (someMatrix.twoTwo*someOtherMatrix.zeroTwo));		//			{O, O, O}
+		twoOne = ((someMatrix.twoZero*someOtherMatrix.oneZero) + (someMatrix.twoOne*someOtherMatrix.oneOne) + (someMatrix.twoTwo*someOtherMatrix.oneTwo));			//			{O, O, O}
+		twoTwo = ((someMatrix.twoZero*someOtherMatrix.twoZero) + (someMatrix.twoOne*someOtherMatrix.twoOne) + (someMatrix.twoTwo*someOtherMatrix.twoTwo));			//			{x, x, x}
+
+		//Old Multiplication (changed on 12/9/14)
+		/*someMatrix.zeroZero = ((someMatrix.zeroZero * someOtherMatrix.zeroZero) + (someMatrix.zeroOne * someOtherMatrix.zeroOne) + (someMatrix.zeroTwo * someOtherMatrix.zeroTwo));
 		someMatrix.zeroOne = ((someMatrix.zeroZero * someOtherMatrix.oneZero) + (someMatrix.zeroOne * someOtherMatrix.oneOne) + (someMatrix.zeroTwo * someOtherMatrix.oneTwo));
 		someMatrix.zeroTwo = ((someMatrix.zeroZero * someOtherMatrix.twoZero) + (someMatrix.zeroOne * someOtherMatrix.twoOne) + (someMatrix.zeroTwo * someOtherMatrix.twoTwo));
 		someMatrix.oneZero = ((someMatrix.zeroZero * someOtherMatrix.zeroZero) + (someMatrix.oneOne * someOtherMatrix.zeroOne) + (someMatrix.oneTwo * someOtherMatrix.zeroTwo));
@@ -177,7 +191,7 @@ namespace MyMathLibrary
 		someMatrix.oneTwo = ((someMatrix.oneZero * someOtherMatrix.twoZero) + (someMatrix.oneOne * someOtherMatrix.twoOne) + (someMatrix.oneTwo * someOtherMatrix.twoTwo));
 		someMatrix.twoZero = ((someMatrix.oneZero * someOtherMatrix.zeroZero) + (someMatrix.twoOne * someOtherMatrix.zeroOne) + (someMatrix.twoTwo * someOtherMatrix.zeroTwo));
 		someMatrix.twoOne = ((someMatrix.twoZero * someOtherMatrix.oneZero) + (someMatrix.twoOne * someOtherMatrix.oneOne) + (someMatrix.twoTwo * someOtherMatrix.oneTwo));
-		someMatrix.twoTwo = ((someMatrix.twoZero * someOtherMatrix.twoZero) + (someMatrix.twoOne * someOtherMatrix.twoOne) + (someMatrix.twoTwo * someOtherMatrix.twoTwo));
+		someMatrix.twoTwo = ((someMatrix.twoZero * someOtherMatrix.twoZero) + (someMatrix.twoOne * someOtherMatrix.twoOne) + (someMatrix.twoTwo * someOtherMatrix.twoTwo));*/
 
 		return someMatrix;
 	}
@@ -191,6 +205,18 @@ namespace MyMathLibrary
 		someVector[2] = ((someVector[2] * someMatrix.twoZero) + (someVector[2] * someMatrix.twoOne) + (someVector[2] * someMatrix.twoTwo));
 
 		return someVector;
+	}
+
+	vector<vector<float>> MyMatrix3x3::GetMatrix()
+	{
+		vector<vector<float>> NewVect = 
+		{
+			{zeroZero, oneZero, twoZero},
+			{zeroOne, oneOne, twoOne},
+			{zeroTwo, oneTwo, twoTwo}
+		};
+
+		return NewVect;
 	}
 
 }

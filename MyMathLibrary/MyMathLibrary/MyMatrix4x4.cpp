@@ -245,9 +245,32 @@ namespace MyMathLibrary
 	
 
 	//Function for matrix multiplication between two [4]x[4] matricies
-	MyMatrix4x4 MyMatrix4x4::My4x4MatrixMultiplication(MyMatrix4x4& someMatrix, MyMatrix4x4& someOtherMatrix)
+	MyMatrix4x4 MyMatrix4x4::My4x4MatrixMultiplication(MyMatrix4x4 someMatrix, MyMatrix4x4 someOtherMatrix)
 	{
-		someMatrix.zeroZero = ((someMatrix.zeroZero * someOtherMatrix.zeroZero) + (someMatrix.zeroOne * someOtherMatrix.zeroOne) + (someMatrix.zeroTwo * someOtherMatrix.zeroTwo) + (someMatrix.zeroThree * someOtherMatrix.zeroThree));
+		//New Multiplication
+		zeroZero = ((someMatrix.zeroZero*someOtherMatrix.zeroZero) + (someMatrix.zeroOne*someOtherMatrix.oneZero) + (someMatrix.zeroTwo*someOtherMatrix.twoZero) + (someMatrix.zeroThree*someOtherMatrix.threeZero));		//	{x, x, x, x}
+		zeroOne = ((someMatrix.zeroZero*someOtherMatrix.zeroOne) + (someMatrix.zeroOne*someOtherMatrix.oneOne) + (someMatrix.zeroTwo*someOtherMatrix.twoOne) + (someMatrix.zeroThree*someOtherMatrix.threeOne));			//	{O, O, O, O}
+		zeroTwo = ((someMatrix.zeroZero*someOtherMatrix.zeroTwo) + (someMatrix.zeroOne*someOtherMatrix.oneTwo) + (someMatrix.zeroTwo*someOtherMatrix.twoTwo) + (someMatrix.zeroThree*someOtherMatrix.threeTwo));			//	{O, O, O, O}
+		zeroThree = ((someMatrix.zeroZero*someOtherMatrix.zeroThree) + (someMatrix.zeroOne*someOtherMatrix.oneThree) + (someMatrix.zeroTwo*someOtherMatrix.twoThree) + (someMatrix.zeroThree*someOtherMatrix.threeThree));	//	{O, O, O, O}
+		/*Second Row*/
+		oneZero = ((someMatrix.oneZero*someOtherMatrix.oneZero) + (someMatrix.oneOne*someOtherMatrix.zeroOne) + (someMatrix.oneTwo*someOtherMatrix.twoZero) + (someMatrix.oneThree*someOtherMatrix.threeZero));		//		{O, O, O, O}
+		oneOne = ((someMatrix.oneZero*someOtherMatrix.oneOne) + (someMatrix.oneOne*someOtherMatrix.oneOne) + (someMatrix.oneTwo*someOtherMatrix.oneTwo) + (someMatrix.oneThree*someOtherMatrix.threeOne));				//		{x, x, x, x}
+		oneTwo = ((someMatrix.oneZero*someOtherMatrix.oneTwo) + (someMatrix.oneOne*someMatrix.twoOne) + (someMatrix.oneTwo*someOtherMatrix.twoTwo) + (someMatrix.oneThree*someOtherMatrix.threeTwo));					//		{O, O, O, O}
+		oneThree = (someMatrix.oneZero*someOtherMatrix.oneThree) + (someMatrix.zeroOne*someOtherMatrix.threeOne) + (someMatrix.zeroTwo*someOtherMatrix.threeTwo) + (someMatrix.zeroThree*someOtherMatrix.threeThree);	//      {O, O, O, O}
+		/*Third Row*/
+		twoZero = ((someMatrix.twoZero*someOtherMatrix.twoZero) + (someMatrix.twoOne*someOtherMatrix.zeroOne) + (someMatrix.twoTwo*someOtherMatrix.zeroTwo) + (someMatrix.twoThree*someOtherMatrix.threeZero));		//		{O, O, O, O}
+		twoOne = ((someMatrix.twoZero*someOtherMatrix.twoOne) + (someMatrix.twoOne*someOtherMatrix.oneOne) + (someMatrix.twoTwo*someOtherMatrix.oneTwo) + (someMatrix.twoThree*someOtherMatrix.threeOne));				//		{O, O, O, O}
+		twoTwo = ((someMatrix.twoZero*someOtherMatrix.twoTwo) + (someMatrix.twoOne*someOtherMatrix.twoOne) + (someMatrix.twoTwo*someOtherMatrix.twoTwo) + (someMatrix.twoThree*someOtherMatrix.threeTwo));				//		{x, x, x, x}
+		twoThree = ((someMatrix.twoZero*someOtherMatrix.twoThree) + (someMatrix.twoOne*someOtherMatrix.threeOne) + (someMatrix.threeTwo*someOtherMatrix.twoTwo) + (someMatrix.twoThree*someOtherMatrix.threeThree));	//		{O, O, O, O}
+		/*Fourth Row*/
+		threeZero = ((someMatrix.threeZero*someOtherMatrix.threeZero) + (someMatrix.threeOne*someOtherMatrix.zeroOne) + (someMatrix.threeTwo*someOtherMatrix.zeroTwo) + (someMatrix.threeThree*someOtherMatrix.zeroThree));
+		threeOne = ((someMatrix.threeZero*someOtherMatrix.threeOne) + (someMatrix.threeOne*someOtherMatrix.oneOne) + (someMatrix.threeTwo*someOtherMatrix.oneTwo) + (someMatrix.threeThree*someOtherMatrix.oneThree));
+		threeTwo = ((someMatrix.threeZero*someOtherMatrix.threeTwo) + (someMatrix.threeOne*someOtherMatrix.twoOne) + (someMatrix.threeTwo*someOtherMatrix.twoTwo) + (someMatrix.threeThree*someOtherMatrix.twoThree));
+		threeThree = ((someMatrix.threeZero*someOtherMatrix.threeThree) + (someMatrix.threeOne*someOtherMatrix.threeOne) + (someMatrix.threeTwo*someOtherMatrix.threeTwo) + (someMatrix.threeThree*someOtherMatrix.threeThree));
+
+
+		//Old Multiplication (changed on 12/9/14)
+		/*someMatrix.zeroZero = ((someMatrix.zeroZero * someOtherMatrix.zeroZero) + (someMatrix.zeroOne * someOtherMatrix.zeroOne) + (someMatrix.zeroTwo * someOtherMatrix.zeroTwo) + (someMatrix.zeroThree * someOtherMatrix.zeroThree));
 		someMatrix.zeroOne = ((someMatrix.zeroZero * someOtherMatrix.oneZero) + (someMatrix.zeroOne * someOtherMatrix.oneOne) + (someMatrix.zeroTwo * someOtherMatrix.oneTwo) + (someMatrix.zeroThree * someOtherMatrix.oneThree));
 		someMatrix.zeroTwo = ((someMatrix.zeroZero * someOtherMatrix.twoZero) + (someMatrix.zeroOne * someOtherMatrix.twoOne) + (someMatrix.zeroTwo * someOtherMatrix.twoTwo) + (someMatrix.zeroThree * someOtherMatrix.twoThree));
 		someMatrix.zeroThree = ((someMatrix.zeroZero * someOtherMatrix.threeZero) + (someMatrix.zeroOne * someOtherMatrix.threeOne) + (someMatrix.zeroTwo * someOtherMatrix.threeTwo) + (someMatrix.zeroThree * someOtherMatrix.threeThree));
@@ -262,10 +285,24 @@ namespace MyMathLibrary
 		someMatrix.threeZero = ((someMatrix.threeZero * someOtherMatrix.zeroZero) + (someMatrix.threeOne * someOtherMatrix.zeroOne) + (someMatrix.threeTwo * someOtherMatrix.zeroTwo) + (someMatrix.threeThree * someOtherMatrix.zeroThree));
 		someMatrix.threeOne = ((someMatrix.threeZero * someOtherMatrix.oneZero) + (someMatrix.threeOne * someOtherMatrix.oneOne) + (someMatrix.threeTwo * someOtherMatrix.oneTwo) + (someMatrix.threeThree * someOtherMatrix.oneThree));
 		someMatrix.threeTwo = ((someMatrix.threeZero * someOtherMatrix.twoZero) + (someMatrix.threeOne * someOtherMatrix.twoOne) + (someMatrix.threeTwo * someOtherMatrix.twoTwo) + (someMatrix.threeThree * someOtherMatrix.twoThree));
-		someMatrix.threeThree = ((someMatrix.threeZero * someOtherMatrix.threeZero) + (someMatrix.threeOne * someOtherMatrix.threeOne) + (someMatrix.threeTwo * someOtherMatrix.threeTwo) + (someMatrix.threeThree * someOtherMatrix.threeThree));
+		someMatrix.threeThree = ((someMatrix.threeZero * someOtherMatrix.threeZero) + (someMatrix.threeOne * someOtherMatrix.threeOne) + (someMatrix.threeTwo * someOtherMatrix.threeTwo) + (someMatrix.threeThree * someOtherMatrix.threeThree));*/
 
 		return someMatrix;
 	
+	}
+
+
+	vector<vector<float>> MyMatrix4x4::GetMatrix()
+	{
+		vector<vector<float>> NewVect =
+		{
+			{ zeroZero, oneZero, twoZero, threeZero },
+			{ zeroOne, oneOne, twoOne, threeOne },
+			{ zeroTwo, oneTwo, twoTwo, threeTwo },
+			{zeroThree, oneThree, twoThree, threeThree}
+		};
+
+		return NewVect;
 	}
 
 

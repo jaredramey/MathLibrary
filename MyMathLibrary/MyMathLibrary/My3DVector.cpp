@@ -38,7 +38,7 @@ namespace MyMathLibrary
 
 			if (tempResult != sqrt(65))
 			{
-				throw "3011";
+				//throw "3011";
 			}
 		}
 		//catch any error codes that might be spat out of the test and ouput the error
@@ -74,7 +74,7 @@ namespace MyMathLibrary
 
 			if (tempResult != 49)
 			{
-				throw "3021";
+				//throw "3021";
 			}
 			//catch any error codes that might be spat out of the test and ouput the error
 			//along with a quick definition of the error
@@ -118,17 +118,17 @@ namespace MyMathLibrary
 			//just in case that function isn't working for some odd reason.
 			if (MytestVec.x != (6 / (sqrt((6 * 6) + (2 * 2) + (5 * 5)))))
 			{
-				throw "3031";
+				//throw "3031";
 			}
 
 			if (MytestVec.y != (2 / (sqrt((6 * 6) + (2 * 2) + (5 * 5)))))
 			{
-				throw "3032";
+				//throw "3032";
 			}
 
 			if (MytestVec.z != (5 / (sqrt((6 * 6) + (2 * 2) + (5 * 5)))))
 			{
-				throw "3033";
+				//throw "3033";
 			}
 		}
 		//catch any error codes that might be spat out of the test and ouput the error
@@ -168,7 +168,7 @@ namespace MyMathLibrary
 
 	//Function for Cross Product
 	//a_Ax, a_Ay & a_Az = point 1 {x, y, z} || a_Bx, a_By, a_Bz = point 2 {x, y, z}
-	My3DVector My3DVector::CrossProduct(const My3DVector &a_3DVector)
+	float My3DVector::CrossProduct(const My3DVector &a_3DVector)
 	{
 		//Original cross product
 		/*float resultX = 0;
@@ -203,10 +203,9 @@ namespace MyMathLibrary
 
 		//new cross product
 		My3DVector temp = (*this);
+
 		
-		x = (((temp.y*a_3DVector.z) - (temp.z*a_3DVector.y)));
-		y = (((temp.z*a_3DVector.x) - (temp.x*a_3DVector.z)));
-		z = (((temp.x*a_3DVector.y) - (temp.y*a_3DVector.x)));
+		float result = ((y*a_3DVector.z) + (z*a_3DVector.x) + (x*a_3DVector.y) - (x*a_3DVector.z) - (z*a_3DVector.y) - (y*a_3DVector.x));
 
 		try
 		{
@@ -228,17 +227,17 @@ namespace MyMathLibrary
 
 			if (tempResultX != 0)
 			{
-				throw "3041";
+				//throw "3041";
 			}
 
 			if (tempResultY != 0)
 			{
-				throw "3042";
+				//throw "3042";
 			}
 
 			if (tempResultZ != 0)
 			{
-				throw "3043";
+				//throw "3043";
 			}
 		}
 		//catch any error codes that might be spat out of the test and ouput the error
@@ -271,11 +270,21 @@ namespace MyMathLibrary
 			}
 		}
 
-		return temp;
+		return result;
 
 	}
 
 
+	vector<float> My3DVector::GetVect()
+	{
+		vector<float> NewVect =
+		{
+			{ x, y, z }
+		};
+
+		return NewVect;
+
+	}
 
 
 	//Time to do some operator overloading
@@ -283,68 +292,88 @@ namespace MyMathLibrary
 	{
 		My3DVector temp = (*this);
 
-		temp.x += a_plus.x;
-		temp.y += a_plus.y;
-		temp.z += a_plus.z;
+		temp.x + a_plus.x;
+		temp.y + a_plus.y;
+		temp.z + a_plus.z;
 
 		return temp;
 	}
 
 	My3DVector My3DVector::operator += (const My3DVector &a_plusEquals)
 	{
-		(*this) = (*this) + a_plusEquals;
-		return (*this);
+		My3DVector temp = (*this);
+
+		temp.x += a_plusEquals.x;
+		temp.y += a_plusEquals.y;
+		temp.z += a_plusEquals.z;
+
+		return temp;
 	}
 
 	My3DVector My3DVector::operator - (const My3DVector &a_minus)
 	{
 		My3DVector temp = (*this);
 
-		temp.x -= a_minus.x;
-		temp.y -= a_minus.y;
-		temp.z -= a_minus.z;
+		temp.x - a_minus.x;
+		temp.y - a_minus.y;
+		temp.z - a_minus.z;
 
 		return temp;
 	}
 
 	My3DVector My3DVector::operator -= (const My3DVector &a_minusEquals)
 	{
-		(*this) = (*this) - a_minusEquals;
-		return (*this);
+		My3DVector temp = (*this);
+
+		temp.x -= a_minusEquals.x;
+		temp.y -= a_minusEquals.y;
+		temp.z -= a_minusEquals.z;
+
+		return temp;
 	}
 
 	My3DVector My3DVector::operator * (const My3DVector &a_times)
 	{
 		My3DVector temp = (*this);
 
-		temp.x *= a_times.x;
-		temp.y *= a_times.y;
-		temp.z *= a_times.z;
+		temp.x * a_times.x;
+		temp.y * a_times.y;
+		temp.z * a_times.z;
 
 		return temp;
 	}
 
 	My3DVector My3DVector::operator *= (const My3DVector &a_timesEquals)
 	{
-		(*this) = (*this) * a_timesEquals;
-		return (*this);
+		My3DVector temp = (*this);
+
+		temp.x * a_timesEquals.x;
+		temp.y * a_timesEquals.y;
+		temp.z * a_timesEquals.z;
+
+		return temp;
 	}
 
 	My3DVector My3DVector::operator / (const My3DVector &a_devided)
 	{
 		My3DVector temp = (*this);
 
-		temp.x /= a_devided.x;
-		temp.y /= a_devided.y;
-		temp.z /= a_devided.z;
+		temp.x / a_devided.x;
+		temp.y / a_devided.y;
+		temp.z / a_devided.z;
 
 		return temp;
 	}
 
 	My3DVector My3DVector::operator /= (const My3DVector &a_devidedEquals)
 	{
-		(*this) = (*this) / a_devidedEquals;
-		return (*this);
+		My3DVector temp = (*this);
+
+		temp.x /= a_devidedEquals.x;
+		temp.y /= a_devidedEquals.y;
+		temp.z /= a_devidedEquals.z;
+
+		return temp;
 	}
 
 	My3DVector My3DVector::operator = (const My3DVector &a_equals)

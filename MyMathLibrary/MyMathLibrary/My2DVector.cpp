@@ -41,7 +41,7 @@ namespace MyMathLibrary
 
 			if (tempResult != sqrt(40))
 			{
-				throw "2011";
+				//throw "2011";
 			}
 		}
 		//catch any error codes that might be spat out of the test and ouput the error
@@ -118,12 +118,12 @@ namespace MyMathLibrary
 			//just in case that function isn't working for some odd reason.
 			if (MytestVec.x != (6/(sqrt((6*6) + (2*2)))))
 			{
-				throw "2031";
+				//throw "2031";
 			}
 									
 			if (MytestVec.y != (2 / (sqrt((6 * 6) + (2 * 2)))))
 			{
-				throw "2032";
+				//throw "2032";
 			}
 		}
 		//catch any error codes that might be spat out of the test and ouput the error
@@ -233,70 +233,97 @@ namespace MyMathLibrary
 	}
 
 
+	vector<float> My2DVector::GetVect()
+	{
+		vector<float> NewVect =
+		{
+			{x, y}
+		};
+
+		return NewVect;
+	}
+
+
 
 	//Time to do some operator overloading
 	My2DVector My2DVector::operator + (const My2DVector &a_plus)
 	{
 		My2DVector temp = (*this);
 
-		temp.x += a_plus.x;
-		temp.y += a_plus.y;
+		temp.x + a_plus.x;
+		temp.y + a_plus.y;
 
 		return temp;
 	}
 
 	My2DVector My2DVector::operator += (const My2DVector &a_plusEquals)
 	{
-		(*this) = (*this) + a_plusEquals;
-		return (*this);
+		My2DVector temp = (*this);
+
+		temp.x += a_plusEquals.x;
+		temp.y += a_plusEquals.y;
+
+		return temp;
 	}
 
 	My2DVector My2DVector::operator - (const My2DVector &a_minus)
 	{
 		My2DVector temp = (*this);
 
-		temp.x -= a_minus.x;
-		temp.y -= a_minus.y;
+		temp.x - a_minus.x;
+		temp.y - a_minus.y;
 
 		return temp;
 	}
 
 	My2DVector My2DVector::operator -= (const My2DVector &a_minusEquals)
 	{
-		(*this) = (*this) - a_minusEquals;
-		return (*this);
+		My2DVector temp = (*this);
+
+		temp.x -= a_minusEquals.x;
+		temp.y -= a_minusEquals.y;
+
+		return temp;
 	}
 
 	My2DVector My2DVector::operator * (const My2DVector &a_times)
 	{
 		My2DVector temp = (*this);
 
-		temp.x *= a_times.x;
-		temp.y *= a_times.y;
+		temp.x * a_times.x;
+		temp.y * a_times.y;
 
 		return temp;
 	}
 
 	My2DVector My2DVector::operator *= (const My2DVector &a_timesEquals)
 	{
-		(*this) = (*this) * a_timesEquals;
-		return (*this);
+		My2DVector temp = (*this);
+
+		temp.x *= a_timesEquals.x;
+		temp.y *= a_timesEquals.y;
+
+		return temp;
 	}
 
 	My2DVector My2DVector::operator / (const My2DVector &a_devided)
 	{
 		My2DVector temp = (*this);
 
-		temp.x /= a_devided.x;
-		temp.y /= a_devided.y;
+		temp.x / a_devided.x;
+		temp.y / a_devided.y;
 
 		return temp;
 	}
 
 	My2DVector My2DVector::operator /= (const My2DVector &a_devidedEquals)
 	{
-		(*this) = (*this) / a_devidedEquals;
-		return (*this);
+		My2DVector temp = (*this);
+
+		temp.x /= a_devidedEquals.x;
+		temp.y /= a_devidedEquals.y;
+
+		return temp;
 	}
 
 	My2DVector My2DVector::operator = (const My2DVector &a_equals)

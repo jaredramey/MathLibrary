@@ -55,4 +55,29 @@ namespace MyMathLibrary
 		return temp;
 
 	}
+
+	vector<float> My4DVector::GetVect()
+	{
+		vector<float> NewVect =
+		{
+			{ x, y, z, w }
+		};
+
+		return NewVect;
+
+	}
+
+
+	bool My4DVector::operator == (const My4DVector &a_equalsEquals)
+	{
+		if (x == a_equalsEquals.x && y == a_equalsEquals.y && z == a_equalsEquals.z && w == a_equalsEquals.w)
+		{
+			return true;
+		}
+
+		else
+		{
+			return false;
+		}
+	}
 }

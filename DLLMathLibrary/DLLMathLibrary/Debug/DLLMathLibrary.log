@@ -1,0 +1,31 @@
+﻿Build started 12/10/2014 10:26:35 AM.
+     1>Project "C:\Users\jared.ramey\Documents\GitHub\MathLibrary\DLLMathLibrary\DLLMathLibrary\DLLMathLibrary.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D DLLMATHLIBRARY_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /D DLL /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt 2DVector.cpp 3DVector.cpp 4DVector.cpp BasicMath.cpp Matrix3x3.cpp Matrix4x4.cpp
+         BasicMath.cpp
+     1>c:\users\jared.ramey\documents\github\mathlibrary\dllmathlibrary\dllmathlibrary\basicmath.cpp(25): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\jared.ramey\documents\github\mathlibrary\dllmathlibrary\dllmathlibrary\basicmath.cpp(26): warning C4244: 'return' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\jared.ramey\documents\github\mathlibrary\dllmathlibrary\dllmathlibrary\basicmath.cpp(31): warning C4244: '=' : conversion from 'double' to 'int', possible loss of data
+     1>c:\users\jared.ramey\documents\github\mathlibrary\dllmathlibrary\dllmathlibrary\basicmath.cpp(32): warning C4244: 'return' : conversion from 'int' to 'float', possible loss of data
+         Generating Code...
+     1>c:\users\jared.ramey\documents\github\mathlibrary\dllmathlibrary\dllmathlibrary\basicmath.cpp(34): warning C4715: 'DLLMath::MyBasicMath::DegreeRadianConversion' : not all control paths return a value
+         Skipping... (no relevant changes detected)
+         Matrix4x4.cpp
+         Matrix3x3.cpp
+         4DVector.cpp
+         3DVector.cpp
+         2DVector.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\jared.ramey\Documents\GitHub\MathLibrary\DLLMathLibrary\Debug\DLLMathLibrary.dll" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\jared.ramey\Documents\GitHub\MathLibrary\DLLMathLibrary\Debug\DLLMathLibrary.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\jared.ramey\Documents\GitHub\MathLibrary\DLLMathLibrary\Debug\DLLMathLibrary.lib" /MACHINE:X86 /DLL Debug\2DVector.obj
+         Debug\3DVector.obj
+         Debug\4DVector.obj
+         Debug\BasicMath.obj
+         Debug\Matrix3x3.obj
+         Debug\Matrix4x4.obj
+            Creating library C:\Users\jared.ramey\Documents\GitHub\MathLibrary\DLLMathLibrary\Debug\DLLMathLibrary.lib and object C:\Users\jared.ramey\Documents\GitHub\MathLibrary\DLLMathLibrary\Debug\DLLMathLibrary.exp
+         DLLMathLibrary.vcxproj -> C:\Users\jared.ramey\Documents\GitHub\MathLibrary\DLLMathLibrary\Debug\DLLMathLibrary.dll
+     1>Done Building Project "C:\Users\jared.ramey\Documents\GitHub\MathLibrary\DLLMathLibrary\DLLMathLibrary\DLLMathLibrary.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.81
